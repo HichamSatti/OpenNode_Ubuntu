@@ -1,0 +1,1459 @@
+                                                                                
+      /\               /\                                                       
+     //\\             //\\                                                      
+    //**\\           //**\\                                                     
+   //****\\         //****\\                                                    
+  //******\\       //******\\   ____                   _   _           _        
+  ---------   /*\   ---------  / __ \                 | \ | |         | |       
+             (***)            | |  | |_ __   ___ _ __ |  \| | ___   __| | ___   
+              \*/             | |  | | "_ \ / _ \ "_ \| . ` |/ _"\ / _" |/ _ \  
+                              | |__| | |_) |  __/ | | | |\  | |_) | (_| |  __/  
+              //\\             \____/| .__/ \___)_| |_|_| \_|\___/ \___/ \___|  
+             //**\\                  | |                                        
+            //****\\                 |_|                                        
+           //******\\                                                           
+           ----------                                                           
+                                                                                
+ ____________________________________________________________
+          | The OpenNode, Nodal Methods for Neutron Diffusion
+ Version  | Version Number: 1.1                              
+ Copyright| 2021 Radiation & Nuclear System Laboratory       
+          | University Abdelmalk Essaadi                     
+          | Faculty of Sciences, Tetouan, Morocco            
+ Source   | FORTRAN90 version                                
+ GUI      | PyQt5                                            
+ Method   | The Nodal Expansion Method (NEM)                 
+ Dimension| Three Dimensions (3D)                            
+ Geometry | Cartesian                                        
+ ____________________________________________________________
+                        ==========================
+   Calculation Mode :    Rod Ejection Calculation with TH feedbacks 
+   ----------------     ==========================
+
+            --------------------------------------------
+            >>>> Writing Macroscopic Cross Sections <<<<
+            --------------------------------------------
+     Material  1
+    Group   Transport    Diffusion  Absorption    Removal      Nu*Fiss      Kap*Fis    Fiss. Spctr
+       1     0.053206    6.264981    0.000373    0.026829     0.000000     0.000000     1.000000
+       2     0.386406    0.862651    0.017722    0.017722     0.000000     0.000000     0.000000
+         --Scattering Matrix--
+           G/G'          1          2
+            1        0.000000    0.026455
+            2        0.000000    0.000000
+     Material  2
+    Group   Transport    Diffusion  Absorption    Removal      Nu*Fiss      Kap*Fis    Fiss. Spctr
+       1     0.295609    1.127616    0.001188    0.024349     0.000000     0.000000     1.000000
+       2     2.459310    0.135539    0.252618    0.252618     0.000000     0.000000     0.000000
+         --Scattering Matrix--
+           G/G'          1          2
+            1        0.000000    0.023161
+            2        0.000000    0.000000
+     Material  3
+    Group   Transport    Diffusion  Absorption    Removal      Nu*Fiss      Kap*Fis    Fiss. Spctr
+       1     0.295609    1.127616    0.001188    0.021269     0.000000     0.000000     1.000000
+       2     2.459310    0.135539    0.252618    0.252618     0.000000     0.000000     0.000000
+         --Scattering Matrix--
+           G/G'          1          2
+            1        0.000000    0.020081
+            2        0.000000    0.000000
+     Material  4
+    Group   Transport    Diffusion  Absorption    Removal      Nu*Fiss      Kap*Fis    Fiss. Spctr
+       1     0.222117    1.500711    0.008718    0.026968     0.004983     0.000000     1.000000
+       2     0.803140    0.415038    0.065255    0.065255     0.083903     0.000000     0.000000
+         --Scattering Matrix--
+           G/G'          1          2
+            1        0.000000    0.018250
+            2        0.000000    0.000000
+     Material  5
+    Group   Transport    Diffusion  Absorption    Removal      Nu*Fiss      Kap*Fis    Fiss. Spctr
+       1     0.221914    1.502083    0.009061    0.027065     0.005577     0.000000     1.000000
+       2     0.795538    0.419004    0.072335    0.072335     0.099863     0.000000     0.000000
+         --Scattering Matrix--
+           G/G'          1          2
+            1        0.000000    0.018004
+            2        0.000000    0.000000
+     Material  6
+    Group   Transport    Diffusion  Absorption    Removal      Nu*Fiss      Kap*Fis    Fiss. Spctr
+       1     0.221715    1.503432    0.009385    0.027152     0.006150     0.000000     1.000000
+       2     0.789253    0.422340    0.078920    0.078920     0.114667     0.000000     0.000000
+         --Scattering Matrix--
+           G/G'          1          2
+            1        0.000000    0.017767
+            2        0.000000    0.000000
+     Material  7
+    Group   Transport    Diffusion  Absorption    Removal      Nu*Fiss      Kap*Fis    Fiss. Spctr
+       1     0.222039    1.501238    0.009317    0.026455     0.005550     0.000000     1.000000
+       2     0.776230    0.429426    0.079633    0.079633     0.098558     0.000000     0.000000
+         --Scattering Matrix--
+           G/G'          1          2
+            1        0.000000    0.017138
+            2        0.000000    0.000000
+     Material  8
+    Group   Transport    Diffusion  Absorption    Removal      Nu*Fiss      Kap*Fis    Fiss. Spctr
+       1     0.222083    1.500940    0.009400    0.026250     0.005541     0.000000     1.000000
+       2     0.769969    0.432918    0.082109    0.082109     0.098006     0.000000     0.000000
+         --Scattering Matrix--
+           G/G'          1          2
+            1        0.000000    0.016850
+            2        0.000000    0.000000
+     Material  9
+    Group   Transport    Diffusion  Absorption    Removal      Nu*Fiss      Kap*Fis    Fiss. Spctr
+       1     0.222127    1.500643    0.009483    0.026045     0.005531     0.000000     1.000000
+       2     0.763813    0.436407    0.084591    0.084591     0.097411     0.000000     0.000000
+         --Scattering Matrix--
+           G/G'          1          2
+            1        0.000000    0.016563
+            2        0.000000    0.000000
+     Material 10
+    Group   Transport    Diffusion  Absorption    Removal      Nu*Fiss      Kap*Fis    Fiss. Spctr
+       1     0.221836    1.502612    0.009637    0.026542     0.006124     0.000000     1.000000
+       2     0.770705    0.432504    0.086119    0.086119     0.113241     0.000000     0.000000
+         --Scattering Matrix--
+           G/G'          1          2
+            1        0.000000    0.016904
+            2        0.000000    0.000000
+     Material 11
+    Group   Transport    Diffusion  Absorption    Removal      Nu*Fiss      Kap*Fis    Fiss. Spctr
+       1     0.221878    1.502327    0.009719    0.026337     0.006114     0.000000     1.000000
+       2     0.764704    0.435899    0.088549    0.088549     0.112635     0.000000     0.000000
+         --Scattering Matrix--
+           G/G'          1          2
+            1        0.000000    0.016618
+            2        0.000000    0.000000
+
+            -------------------------------
+            >>>>>Wrting Core Geometry<<<<<
+            -------------------------------
+  Number of Assembly in x, y and z Directions Respectively :
+           9           9          18
+  Number of Nodes in x, y and z Directions Respectively :
+          17          17          18
+
+  x-Directed Nodes Divison (Delta-x)
+    10.80  10.80  10.80  10.80  10.80  10.80  10.80  10.80  10.80  10.80
+    10.80  10.80  10.80  10.80  10.80  10.80  10.80
+  y-Directed Nodes Divison (Delta-y)
+    10.80  10.80  10.80  10.80  10.80  10.80  10.80  10.80  10.80  10.80
+    10.80  10.80  10.80  10.80  10.80  10.80  10.80
+  Planar Region :  1
+        1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17
+    17  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  2  2 
+    16  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  2  2 
+    15  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  2  2 
+    14  1  1  1  1  1  1  1  1  1  1  1  1  1  3  3  2  2 
+    13  1  1  1  1  1  1  1  1  1  1  1  1  1  3  3  2  2 
+    12  1  1  1  1  1  1  1  1  1  1  1  1  1  2  2       
+    11  1  1  1  1  1  1  1  1  1  1  1  1  1  2  2       
+    10  1  1  1  1  1  1  1  1  1  1  1  3  3  2  2       
+     9  1  1  1  1  1  1  1  1  1  1  1  3  3  2  2       
+     8  1  1  1  1  1  1  1  1  1  3  3  2  2             
+     7  1  1  1  1  1  1  1  1  1  3  3  2  2             
+     6  1  1  1  1  1  1  1  3  3  2  2                   
+     5  1  1  1  1  1  1  1  3  3  2  2                   
+     4  1  1  1  3  3  2  2  2  2                         
+     3  1  1  1  3  3  2  2  2  2                         
+     2  2  2  2  2  2                                     
+     1  2  2  2  2  2                                     
+  Planar Region :  2
+        1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17
+    17  4  5  5  4  4  5  5  4  4  5  5  4  4  6  6  2  2 
+    16  5  4  4  5  5  4  4  5  5  4  4  6  6  6  6  2  2 
+    15  5  4  4  5  5  4  4  5  5  4  4  6  6  6  6  2  2 
+    14  4  5  5  4  4  5  5  4  4  5  5  6  6  3  3  2  2 
+    13  4  5  5  4  4  5  5  4  4  5  5  6  6  3  3  2  2 
+    12  5  4  4  5  5  4  4  5  5  6  6  6  6  2  2       
+    11  5  4  4  5  5  4  4  5  5  6  6  6  6  2  2       
+    10  4  5  5  4  4  5  5  4  4  6  6  3  3  2  2       
+     9  4  5  5  4  4  5  5  4  4  6  6  3  3  2  2       
+     8  5  4  4  5  5  6  6  6  6  3  3  2  2             
+     7  5  4  4  5  5  6  6  6  6  3  3  2  2             
+     6  4  6  6  6  6  6  6  3  3  2  2                   
+     5  4  6  6  6  6  6  6  3  3  2  2                   
+     4  6  6  6  3  3  2  2  2  2                         
+     3  6  6  6  3  3  2  2  2  2                         
+     2  2  2  2  2  2                                     
+     1  2  2  2  2  2                                     
+  Planar Region :  3
+        1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17
+    17  4  9  9  4  4  9  9  4  4  7  7  4  4  6  6  2  2 
+    16  9  4  4  8  8  4  4  8  8  4  4  11 11 6  6  2  2 
+    15  9  4  4  8  8  4  4  8  8  4  4  11 11 6  6  2  2 
+    14  4  8  8  4  4  8  8  4  4  8  8  6  6  3  3  2  2 
+    13  4  8  8  4  4  8  8  4  4  8  8  6  6  3  3  2  2 
+    12  9  4  4  8  8  4  4  8  8  10 10 6  6  2  2       
+    11  9  4  4  8  8  4  4  8  8  10 10 6  6  2  2       
+    10  4  8  8  4  4  8  8  4  4  6  6  3  3  2  2       
+     9  4  8  8  4  4  8  8  4  4  6  6  3  3  2  2       
+     8  7  4  4  8  8  10 10 6  6  3  3  2  2             
+     7  7  4  4  8  8  10 10 6  6  3  3  2  2             
+     6  4  11 11 6  6  6  6  3  3  2  2                   
+     5  4  11 11 6  6  6  6  3  3  2  2                   
+     4  6  6  6  3  3  2  2  2  2                         
+     3  6  6  6  3  3  2  2  2  2                         
+     2  2  2  2  2  2                                     
+     1  2  2  2  2  2                                     
+
+  Planar Region Assignment to Planes.
+ -------------------------------------
+   Plane Number     Planar Region    Delta-z
+       18 (Top)            1          30.00
+       17                  3           8.00
+       16                  3          12.80
+       15                  3          12.80
+       14                  3          30.00
+       13                  3          30.00
+       12                  3          30.00
+       11                  3          30.00
+       10                  3          30.00
+        9                  3          30.00
+        8                  3          30.00
+        7                  3          30.00
+        6                  3          30.00
+        5                  3          30.00
+        4                  3          15.00
+        3                  3          11.00
+        2                  2           7.70
+        1 (Bottom)         1          30.00
+
+   Boundary Conditions
+   -------------------
+  X-Directed West   : Reflective
+  X-Directed East   : Zero Flux
+  Y-Directed North  : Reflective
+  Y-Directed South  : Zero Flux
+  Z-Directed Bottom : Zero Flux
+  Z-Directed Top    : Zero Flux
+
+  ...Core Geometry is Sucessfully Read...
+     ---------------------------------
+
+
+            >>>> READING CONTROL RODS INSERTION <<<<
+            --------------------------------------------
+  NUMBER OF CONTROL ROD BANK  :  7
+  MAX. NUMBER OF STEPS        : 228
+  FULLY INSERTED POSITION (cm): 37.7 (FROM BOTTOM OF THE CORE)
+  STEP SIZE (cm)              :   1.5942
+  CR CUSPING CORRECTION       : NOT ACTIVE
+  INITIAL CONTROL ROD BANK POSITION (STEPS) : 
+  (0 means fully inserted) 
+    Bank  1  Bank  2  Bank  3  Bank  4  Bank  5  Bank  6  Bank  7
+    150.0    200.0    150.0    200.0    200.0    200.0    200.0
+
+  CONTROL ROD BANK MAP : 
+  1  0  2  0  0  0  3  0  0
+  0  4  0  0  0  6  0  0  0
+  2  0  5  0  6  0  6  0  0
+  0  0  0  4  0  0  0  0  0
+  0  0  6  0  7  0  0  0  0
+  0  6  0  0  0  0  0  0  0
+  3  0  6  0  0  0  0  0  0
+  0  0  0  0  0  0  0  0  0
+  0  0  0  0  0  0  0  0  0
+
+  MATERIAL CX INCREMENT OR DECREMENT DUE TO CR INSERTION : 
+    MATERIAL  1
+    GROUP   TRANSPORT  ABSORPTION      NU*FISS      FISSION
+       1     0.003732    0.002478    -0.000103    -0.000000
+       2    -0.021993    0.025587    -0.002823    -0.000000
+   --SCATTERING MATRIX--
+     G/G'        1        2
+      1      0.000000 -0.003193
+      2      0.000000  0.000000
+    MATERIAL  2
+    GROUP   TRANSPORT  ABSORPTION      NU*FISS      FISSION
+       1     0.003732    0.002478    -0.000103    -0.000000
+       2    -0.021993    0.025587    -0.002823    -0.000000
+   --SCATTERING MATRIX--
+     G/G'        1        2
+      1      0.000000 -0.003193
+      2      0.000000  0.000000
+    MATERIAL  3
+    GROUP   TRANSPORT  ABSORPTION      NU*FISS      FISSION
+       1     0.003732    0.002478    -0.000103    -0.000000
+       2    -0.021993    0.025587    -0.002823    -0.000000
+   --SCATTERING MATRIX--
+     G/G'        1        2
+      1      0.000000 -0.003193
+      2      0.000000  0.000000
+    MATERIAL  4
+    GROUP   TRANSPORT  ABSORPTION      NU*FISS      FISSION
+       1     0.003732    0.002478    -0.000103    -0.000000
+       2    -0.021993    0.025587    -0.002823    -0.000000
+   --SCATTERING MATRIX--
+     G/G'        1        2
+      1      0.000000 -0.003193
+      2      0.000000  0.000000
+    MATERIAL  5
+    GROUP   TRANSPORT  ABSORPTION      NU*FISS      FISSION
+       1     0.003732    0.002478    -0.000103    -0.000000
+       2    -0.021993    0.025587    -0.002823    -0.000000
+   --SCATTERING MATRIX--
+     G/G'        1        2
+      1      0.000000 -0.003193
+      2      0.000000  0.000000
+    MATERIAL  6
+    GROUP   TRANSPORT  ABSORPTION      NU*FISS      FISSION
+       1     0.003741    0.002429    -0.000123    -0.000000
+       2    -0.016750    0.025648    -0.003281    -0.000000
+   --SCATTERING MATRIX--
+     G/G'        1        2
+      1      0.000000 -0.003142
+      2      0.000000  0.000000
+    MATERIAL  7
+    GROUP   TRANSPORT  ABSORPTION      NU*FISS      FISSION
+       1     0.003732    0.002478    -0.000103    -0.000000
+       2    -0.021993    0.025587    -0.002823    -0.000000
+   --SCATTERING MATRIX--
+     G/G'        1        2
+      1      0.000000 -0.003193
+      2      0.000000  0.000000
+    MATERIAL  8
+    GROUP   TRANSPORT  ABSORPTION      NU*FISS      FISSION
+       1     0.003732    0.002478    -0.000103    -0.000000
+       2    -0.021993    0.025587    -0.002823    -0.000000
+   --SCATTERING MATRIX--
+     G/G'        1        2
+      1      0.000000 -0.003193
+      2      0.000000  0.000000
+    MATERIAL  9
+    GROUP   TRANSPORT  ABSORPTION      NU*FISS      FISSION
+       1     0.003732    0.002478    -0.000103    -0.000000
+       2    -0.021993    0.025587    -0.002823    -0.000000
+   --SCATTERING MATRIX--
+     G/G'        1        2
+      1      0.000000 -0.003193
+      2      0.000000  0.000000
+    MATERIAL 10
+    GROUP   TRANSPORT  ABSORPTION      NU*FISS      FISSION
+       1     0.003732    0.002478    -0.000103    -0.000000
+       2    -0.021993    0.025587    -0.002823    -0.000000
+   --SCATTERING MATRIX--
+     G/G'        1        2
+      1      0.000000 -0.003193
+      2      0.000000  0.000000
+    MATERIAL 11
+    GROUP   TRANSPORT  ABSORPTION      NU*FISS      FISSION
+       1     0.003732    0.002478    -0.000103    -0.000000
+       2    -0.021993    0.025587    -0.002823    -0.000000
+   --SCATTERING MATRIX--
+     G/G'        1        2
+      1      0.000000 -0.003193
+      2      0.000000  0.000000
+
+  ...Control Rods Insertion card is sucessfully read...
+
+
+            >>>>     READING ROD EJECTION DATA      <<<<
+            --------------------------------------------
+                           Bank  1  Bank  2  Bank  3  Bank  4  Bank  5  Bank  6  Bank  7
+  FINAL BANK POS. (STEP)    150.0    200.0    228.0    200.0    200.0    200.0    200.0
+  STARTS MOVE (SECOND)        0.0      0.0      0.0      0.0      0.0      0.0      0.0
+  SPEED (STEP/SECOND)         0.0      0.0    780.0      0.0      0.0      0.0      0.0
+
+  TIME PARAMETERS IN SECONDS : 
+    TOTAL SIMULATION TIME         :   1.00
+    FIRST TIME STEP               : 0.0100
+    SECOND TIME STEP              : 0.1000
+    WHEN SECOND TIME STEP APPLY?  :   1.00
+
+  DELAYED NEUTRON FRACTION : 
+    0.00026    0.00152    0.00139    0.00307    0.00110    0.00026
+
+  PRECUSOR DECAY CONSTANT (1/s): 
+    0.01280    0.03180    0.11900    0.31810    1.40270    3.92860
+
+  NEUTRON VELOCITY (cm/s) : 
+    2.80000E+07    4.40000E+05
+
+  ...Rod Ejection Card is sucessfully read...
+
+
+            >>>>       READING BORON CONCENTRATION        <<<<
+            --------------------------------------------------
+  BORON CONCENTRATION SET       : 1188.12
+  BORON CONCENTRATION REFERENCE : 1200.20
+
+  MATERIAL CX CHANGES PER PPM BORON CHANGES : 
+    MATERIAL  1
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1     0.000000    0.000000   0.00000E+00   0.00000E+00
+       2     0.000005    0.000010   0.00000E+00   0.00000E+00
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00  0.79146E-09
+      2      0.00000E+00  0.00000E+00
+    MATERIAL  2
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1     0.000000    0.000000   0.00000E+00   0.00000E+00
+       2     0.000776    0.000084   0.00000E+00   0.00000E+00
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00  0.00000E+00
+      2      0.00000E+00  0.00000E+00
+    MATERIAL  3
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1     0.000000    0.000000   0.00000E+00   0.00000E+00
+       2     0.000776    0.000084   0.00000E+00   0.00000E+00
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00  0.00000E+00
+      2      0.00000E+00  0.00000E+00
+    MATERIAL  4
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1     0.000000    0.000000  -0.11210E-08  -0.17619E-19
+       2    -0.000010    0.000007  -0.24305E-05  -0.31909E-16
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00 -0.10859E-06
+      2      0.00000E+00  0.00000E+00
+    MATERIAL  5
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1     0.000000    0.000000  -0.16788E-08  -0.24996E-19
+       2    -0.000009    0.000007  -0.27244E-05  -0.35768E-16
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00 -0.10695E-06
+      2      0.00000E+00  0.00000E+00
+    MATERIAL  6
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1     0.000000    0.000000  -0.22104E-08  -0.32023E-19
+       2    -0.000007    0.000007  -0.29588E-05  -0.38845E-16
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00 -0.10537E-06
+      2      0.00000E+00  0.00000E+00
+    MATERIAL  7
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1     0.000000    0.000000  -0.17132E-08  -0.24996E-19
+       2    -0.000007    0.000006  -0.25536E-05  -0.33522E-16
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00 -0.10087E-06
+      2      0.00000E+00  0.00000E+00
+    MATERIAL  8
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1     0.000000    0.000000  -0.17242E-08  -0.25490E-19
+       2    -0.000006    0.000006  -0.24888E-05  -0.32670E-16
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00 -0.98858E-07
+      2      0.00000E+00  0.00000E+00
+    MATERIAL  9
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1     0.000000    0.000000  -0.17350E-08  -0.25605E-19
+       2    -0.000006    0.000006  -0.24224E-05  -0.31798E-16
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00 -0.96849E-07
+      2      0.00000E+00  0.00000E+00
+    MATERIAL 10
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1     0.000000    0.000000  -0.22434E-08  -0.32023E-19
+       2    -0.000006    0.000006  -0.27766E-05  -0.36451E-16
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00 -0.99331E-07
+      2      0.00000E+00  0.00000E+00
+    MATERIAL 11
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1     0.000000    0.000000  -0.22537E-08  -0.32487E-19
+       2    -0.000005    0.000006  -0.27078E-05  -0.35548E-16
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00 -0.97329E-07
+      2      0.00000E+00  0.00000E+00
+
+  ...Boron Concentration card is sucessfully read...
+
+
+            >>>>   READING THERMAL-HYDRAULIC DATA   <<<<
+            --------------------------------------------
+  REACTOR PERCENT POWER (%)                :    100.00000
+  REACTOR POWER (Watt)                     :   6.9375E+08
+  COOLANT INLET TEMPERATURE (Kelvin)       :   5.5915E+02
+  FUEL ASSEMBLY MASS FLOW RATE (Kg/s)      :   8.2121E+01
+  FUEL MEAT RADIUS (m)                     :   4.1195E-03
+  GAP THICKNESS (m)                        :   6.8000E-05
+  CLAD THICKNESS (m)                       :   5.7100E-04
+  PIN PITCH(m)                             :   1.2655E-02
+  FRACTION OF HEAT DEPOSITED IN COOL.      :   1.9000E-02
+
+  ...Thermal-hydraulic Card is sucessfully read...
+
+
+            >>>>      READING FUEL TEMPERATURE      <<<<
+            --------------------------------------------
+  AVERAGE FUEL TEMPERATURE   :891.19  (NOT USED)
+  FUEL TEMPERATURE REFERENCE :891.45
+
+  MATERIAL CX CHANGES PER FUEL TEMPERATURE CHANGES : 
+    MATERIAL  1
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1   0.00000E+00  0.00000E+00   0.00000E+00   0.00000E+00
+       2   0.00000E+00  0.00000E+00   0.00000E+00   0.00000E+00
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00  0.00000E+00
+      2      0.00000E+00  0.00000E+00
+    MATERIAL  2
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1   0.00000E+00  0.00000E+00   0.00000E+00   0.00000E+00
+       2   0.00000E+00  0.00000E+00   0.00000E+00   0.00000E+00
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00  0.00000E+00
+      2      0.00000E+00  0.00000E+00
+    MATERIAL  3
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1   0.00000E+00  0.00000E+00   0.00000E+00   0.00000E+00
+       2   0.00000E+00  0.00000E+00   0.00000E+00   0.00000E+00
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00  0.00000E+00
+      2      0.00000E+00  0.00000E+00
+    MATERIAL  4
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1  -0.30920E-04  0.34971E-04   0.64013E-06   0.71541E-17
+       2  -0.13729E-03 -0.37181E-04  -0.56304E-04  -0.73919E-15
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00 -0.27554E-04
+      2      0.00000E+00  0.00000E+00
+    MATERIAL  5
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1  -0.30861E-04  0.35180E-04   0.99743E-06   0.11868E-16
+       2  -0.11748E-03 -0.37704E-04  -0.60415E-04  -0.79317E-15
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00 -0.27677E-04
+      2      0.00000E+00  0.00000E+00
+    MATERIAL  6
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1  -0.30917E-04  0.35384E-04   0.14185E-05   0.17427E-16
+       2  -0.10134E-03 -0.37756E-04  -0.63096E-04  -0.82836E-15
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00 -0.27839E-04
+      2      0.00000E+00  0.00000E+00
+    MATERIAL  7
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1  -0.31375E-04  0.34870E-04   0.94543E-06   0.11868E-16
+       2  -0.10827E-03 -0.37275E-04  -0.57966E-04  -0.76085E-15
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00 -0.27355E-04
+      2      0.00000E+00  0.00000E+00
+    MATERIAL  8
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1  -0.31550E-04  0.34727E-04   0.92608E-06   0.10893E-16
+       2  -0.10552E-03 -0.37181E-04  -0.57111E-04  -0.74957E-15
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00 -0.27238E-04
+      2      0.00000E+00  0.00000E+00
+    MATERIAL  9
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1  -0.31728E-04  0.34603E-04   0.90580E-06   0.10617E-16
+       2  -0.10252E-03 -0.37020E-04  -0.56154E-04  -0.73697E-15
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00 -0.27117E-04
+      2      0.00000E+00  0.00000E+00
+    MATERIAL 10
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1  -0.31419E-04  0.35064E-04   0.13564E-05   0.17427E-16
+       2  -0.93889E-04 -0.37140E-04  -0.60505E-04  -0.79425E-15
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00 -0.27505E-04
+      2      0.00000E+00  0.00000E+00
+    MATERIAL 11
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1  -0.31591E-04  0.34912E-04   0.13334E-05   0.16277E-16
+       2  -0.91713E-04 -0.36991E-04  -0.59628E-04  -0.78272E-15
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00 -0.27383E-04
+      2      0.00000E+00  0.00000E+00
+
+  ...Fuel Temperature is card sucessfully read...
+
+
+            >>>>   READING MODERATOR TEMPERATURE    <<<<
+            --------------------------------------------
+  AVERAGE MODERATOR TEMPERATURE   :559.19  (NOT USED)
+  MODERATOR TEMPERATURE REFERENCE :579.75
+
+  MATERIAL CX CHANGES PER MODERATOR TEMPERATURE CHANGES : 
+    MATERIAL  1
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1   0.00000E+00  0.00000E+00   0.00000E+00   0.00000E+00
+       2   0.00000E+00  0.00000E+00   0.00000E+00   0.00000E+00
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00  0.00000E+00
+      2      0.00000E+00  0.00000E+00
+    MATERIAL  2
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1   0.00000E+00  0.00000E+00   0.00000E+00   0.00000E+00
+       2   0.00000E+00  0.00000E+00   0.00000E+00   0.00000E+00
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00  0.00000E+00
+      2      0.00000E+00  0.00000E+00
+    MATERIAL  3
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1   0.00000E+00  0.00000E+00   0.00000E+00   0.00000E+00
+       2   0.00000E+00  0.00000E+00   0.00000E+00   0.00000E+00
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00  0.00000E+00
+      2      0.00000E+00  0.00000E+00
+    MATERIAL  4
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1  -0.20331E-05  0.21219E-06   0.12471E-06   0.14304E-17
+       2  -0.10867E-03 -0.31560E-04  -0.41644E-04  -0.54672E-15
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00  0.80968E-06
+      2      0.00000E+00  0.00000E+00
+    MATERIAL  5
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1  -0.19808E-05  0.22600E-06   0.13515E-06   0.15690E-17
+       2  -0.90615E-04 -0.32144E-04  -0.45310E-04  -0.59486E-15
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00  0.85847E-06
+      2      0.00000E+00  0.00000E+00
+    MATERIAL  6
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1  -0.19243E-05  0.23994E-06   0.14908E-06   0.17542E-17
+       2  -0.76279E-04 -0.32378E-04  -0.47847E-04  -0.62817E-15
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00  0.90349E-06
+      2      0.00000E+00  0.00000E+00
+    MATERIAL  7
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1  -0.26963E-05  0.24853E-06   0.14077E-06   0.15690E-17
+       2  -0.76244E-04 -0.30012E-04  -0.42020E-04  -0.55167E-15
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00  0.70131E-06
+      2      0.00000E+00  0.00000E+00
+    MATERIAL  8
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1  -0.30791E-05  0.26185E-06   0.14323E-06   0.16790E-17
+       2  -0.73340E-04 -0.29193E-04  -0.40770E-04  -0.53526E-15
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00  0.61738E-06
+      2      0.00000E+00  0.00000E+00
+    MATERIAL  9
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1  -0.35388E-05  0.27431E-06   0.14602E-06   0.17167E-17
+       2  -0.71371E-04 -0.28304E-04  -0.39432E-04  -0.51769E-15
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00  0.51655E-06
+      2      0.00000E+00  0.00000E+00
+    MATERIAL 10
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1  -0.26391E-05  0.26429E-06   0.15586E-06   0.17542E-17
+       2  -0.63955E-04 -0.30351E-04  -0.44443E-04  -0.58348E-15
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00  0.74432E-06
+      2      0.00000E+00  0.00000E+00
+    MATERIAL 11
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1  -0.30215E-05  0.27906E-06   0.15881E-06   0.18853E-17
+       2  -0.61698E-04 -0.29563E-04  -0.43159E-04  -0.56662E-15
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00  0.65952E-06
+      2      0.00000E+00  0.00000E+00
+
+  ...Moderator Temperature Card is sucessfully read...
+
+
+            >>>>       READING COOLANT DENSITY      <<<<
+            --------------------------------------------
+  AVERAGE COOLANT DENSITY   :  0.7464  (USED AS GUESS)
+  COOLANT DENSITY REFERENCE :  0.7125
+
+  MATERIAL CX CHANGES PER COOLANT DENSITY CHANGES : 
+    MATERIAL  1
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1   0.74576E-01  0.20769E-03   0.00000E+00   0.00000E+00
+       2   0.53363E+00  0.75842E-02   0.00000E+00   0.00000E+00
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00  0.37131E-01
+      2      0.00000E+00  0.00000E+00
+    MATERIAL  2
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1   0.00000E+00  0.00000E+00   0.00000E+00   0.00000E+00
+       2   0.00000E+00  0.00000E+00   0.00000E+00   0.00000E+00
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00  0.00000E+00
+      2      0.00000E+00  0.00000E+00
+    MATERIAL  3
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1   0.00000E+00  0.00000E+00   0.00000E+00   0.00000E+00
+       2   0.00000E+00  0.00000E+00   0.00000E+00   0.00000E+00
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00  0.00000E+00
+      2      0.00000E+00  0.00000E+00
+    MATERIAL  4
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1   0.13567E+00  0.15519E-02   0.92069E-03   0.10239E-13
+       2   0.99263E+00  0.25266E-01   0.24775E-01   0.32526E-12
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00  0.29319E-01
+      2      0.00000E+00  0.00000E+00
+    MATERIAL  5
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1   0.13575E+00  0.16149E-02   0.96416E-03   0.10814E-13
+       2   0.98198E+00  0.28667E-01   0.31499E-01   0.41354E-12
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00  0.29270E-01
+      2      0.00000E+00  0.00000E+00
+    MATERIAL  6
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1   0.13583E+00  0.16802E-02   0.10141E-02   0.11477E-13
+       2   0.97227E+00  0.31957E-01   0.38110E-01   0.50033E-12
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00  0.29215E-01
+      2      0.00000E+00  0.00000E+00
+    MATERIAL  7
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1   0.13103E+00  0.16840E-02   0.98195E-03   0.10814E-13
+       2   0.93470E+00  0.31424E-01   0.35159E-01   0.46172E-12
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00  0.28249E-01
+      2      0.00000E+00  0.00000E+00
+    MATERIAL  8
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1   0.12938E+00  0.17197E-02   0.98844E-03   0.11132E-13
+       2   0.91817E+00  0.32472E-01   0.36325E-01   0.47708E-12
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00  0.27890E-01
+      2      0.00000E+00  0.00000E+00
+    MATERIAL  9
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1   0.12768E+00  0.17499E-02   0.99518E-03   0.11221E-13
+       2   0.90129E+00  0.33594E-01   0.37450E-01   0.49190E-12
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00  0.27520E-01
+      2      0.00000E+00  0.00000E+00
+    MATERIAL 10
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1   0.13112E+00  0.17553E-02   0.10352E-02   0.11477E-13
+       2   0.92492E+00  0.34985E-01   0.42069E-01   0.58348E-12
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00  0.28188E-01
+      2      0.00000E+00  0.00000E+00
+    MATERIAL 11
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1   0.12946E+00  0.17950E-02   0.10429E-02   0.11853E-13
+       2   0.90846E+00  0.36103E-01   0.43321E-01   0.56886E-12
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00  0.27826E-01
+      2      0.00000E+00  0.00000E+00
+
+  ...Coolant Density Card is sucessfully read...
+    1     0.929358    6.53588E+01    3.58028E+02
+    2     1.014392    1.00000E+00    6.58656E+01
+    3     0.989462    1.00000E+00    3.06600E+00
+    4     0.986327    1.00000E+00    1.00000E+00
+    5     0.996577    4.39076E+02    3.62413E-01
+    6     1.002814    2.29872E+00    7.99859E+00
+    7     1.001397    2.26145E-01    1.29652E+00
+    8     1.001570    1.53655E-01    1.86154E-01
+    9     1.001965    1.16646E-01    1.20748E-01
+   10     1.008295    8.59817E+02    1.00115E-01
+   11     1.008427    1.31983E+02    3.20925E+02
+   12     1.008031    1.00000E+00    8.47456E+00
+   13     1.008036    6.73571E-01    7.93245E-01
+   14     1.008064    2.75940E-01    2.95744E-01
+   15     1.008257    2.70133E+00    2.04875E-01
+   16     1.008192    5.85222E-01    6.93247E-01
+   17     1.008177    1.57621E-01    3.99583E-01
+   18     1.008204    7.38002E-02    7.86542E-02
+   19     1.008248    5.62161E-02    5.87587E-02
+   20     1.009261    1.41160E+01    4.92470E-02
+    1     1.010465    3.45605E-02    4.83311E-02
+    2     1.009980    3.45214E-02    4.15720E-02
+    3     1.009923    3.19188E-02    3.43352E-02
+    4     1.009916    2.96655E-02    3.13604E-02
+    5     1.009904    5.86520E+00    2.88268E-02
+    6     1.009964    5.50822E-01    2.39099E+00
+    7     1.009991    1.46489E-01    8.02361E-01
+    8     1.010010    1.14654E-01    1.32258E-01
+    9     1.010023    9.24313E-02    1.08987E-01
+   10     1.010135    5.11285E-01    8.45273E-02
+   11     1.010076    1.06718E-01    4.32684E-01
+   12     1.010102    3.30279E-02    2.09635E-01
+   13     1.010097    2.77961E-02    3.03021E-02
+   14     1.010095    2.47818E-02    2.76602E-02
+   15     1.010070    1.36436E+00    2.37933E-02
+   16     1.010105    2.42496E-01    8.38414E-01
+   17     1.010116    6.80220E-02    3.10114E-01
+   18     1.010127    5.74274E-02    6.61535E-02
+   19     1.010133    4.60536E-02    5.37516E-02
+   20     1.010180    3.13905E-01    4.19645E-02
+    1     0.999231    4.17988E-02    1.36564E-01
+    2     1.001295    3.35199E-02    5.69626E-02
+    3     1.001506    2.03431E-02    3.08893E-02
+    4     1.001519    1.33158E-02    1.76072E-02
+    5     1.001977    2.82050E+03    1.16452E-02
+    6     1.004367    1.51881E+00    9.06051E+00
+    7     1.003108    2.99598E-01    1.22379E+00
+    8     1.003150    2.28089E-01    2.76214E-01
+    9     1.003268    2.06925E-01    2.17750E-01
+   10     1.003912    3.56162E+02    2.00022E-01
+   11     1.003692    2.67188E+00    1.79883E+01
+   12     1.003692    2.83933E-01    3.36047E+00
+   13     1.003656    2.29277E-01    2.89319E-01
+   14     1.003629    1.62670E-01    2.02553E-01
+   15     1.003261    6.96506E-01    1.41041E-01
+   16     1.003262    2.01096E-01    6.07007E-01
+   17     1.003339    2.42308E-02    3.23285E-01
+   18     1.003353    2.01478E-02    2.42603E-02
+   19     1.003355    1.41109E-02    1.54882E-02
+   20     1.003322    2.03975E-01    1.14226E-02
+    1     1.001930    1.25835E-02    1.88711E-02
+    2     1.001971    1.07367E-02    1.08307E-02
+    3     1.001964    9.92386E-03    9.97140E-03
+    4     1.001953    9.46345E-03    9.49309E-03
+    5     1.001088    4.34359E-01    9.16202E-03
+    6     1.000411    7.17758E-02    4.19556E-01
+    7     1.001201    6.55937E-02    2.40110E-01
+    8     1.001327    5.21522E-02    7.88548E-02
+    9     1.001373    4.12924E-02    4.76188E-02
+   10     1.001677    2.45263E-01    3.68711E-02
+   11     1.001654    5.95797E-02    1.84292E-01
+   12     1.001595    1.08941E-02    7.95856E-02
+   13     1.001583    8.29993E-03    1.23582E-02
+   14     1.001577    6.02074E-03    7.06291E-03
+   15     1.001505    8.45730E-02    5.72316E-03
+   16     1.001517    2.45730E-02    6.66807E-02
+   17     1.001542    9.33167E-03    3.82960E-02
+   18     1.001551    7.35352E-03    8.73681E-03
+   19     1.001555    5.75683E-03    6.71801E-03
+   20     1.001586    4.91330E-02    5.21698E-03
+    1     0.998694    8.05626E-03    1.15606E-02
+    2     0.999231    4.73255E-03    4.93859E-03
+    3     0.999279    3.76078E-03    4.27110E-03
+    4     0.999272    3.23936E-03    3.53384E-03
+    5     0.998817    1.45341E-01    3.07693E-03
+    6     0.998959    2.67148E-02    1.19422E-01
+    7     0.998966    7.27668E-03    5.28418E-02
+    8     0.998977    5.63509E-03    1.00572E-02
+    9     0.998987    4.85633E-03    5.38728E-03
+   10     0.999130    7.59228E-02    4.63578E-03
+   11     0.999125    1.10241E-02    6.46555E-02
+   12     0.999103    8.01617E-03    3.07220E-02
+   13     0.999096    5.77498E-03    8.76484E-03
+   14     0.999094    4.44249E-03    5.18392E-03
+   15     0.999089    6.25353E-02    3.92257E-03
+   16     0.999149    1.62051E-02    4.48122E-02
+   17     0.999111    3.09648E-03    2.24902E-02
+   18     0.999112    2.33708E-03    3.42381E-03
+   19     0.999116    1.97645E-03    2.15789E-03
+   20     0.999171    3.08553E-02    1.85536E-03
+    1     1.000429    5.22602E-03    1.37807E-02
+    2     1.000187    3.97219E-03    4.01738E-03
+    3     1.000170    3.44650E-03    3.46321E-03
+    4     1.000179    3.30554E-03    3.31089E-03
+    5     1.000461    1.11092E-01    3.24644E-03
+    6     1.000463    1.49575E-02    1.01269E-01
+    7     1.000407    9.52825E-03    5.35635E-02
+    8     1.000397    6.74358E-03    1.42992E-02
+    9     1.000394    5.12755E-03    6.55101E-03
+   10     1.000375    3.76020E-02    4.40516E-03
+   11     1.000388    1.10587E-02    2.43473E-02
+   12     1.000382    2.53904E-03    1.06015E-02
+   13     1.000384    1.76099E-03    2.21659E-03
+   14     1.000385    1.16333E-03    1.40908E-03
+   15     1.000413    2.44550E-02    9.28797E-04
+   16     1.000392    9.71015E-03    1.54009E-02
+   17     1.000400    2.80107E-03    5.96197E-03
+   18     1.000398    1.96302E-03    2.40651E-03
+   19     1.000397    1.36780E-03    1.62654E-03
+   20     1.000388    7.60487E-03    1.13623E-03
+    1     0.999921    2.00034E-03    5.76466E-03
+    2     0.999996    1.64593E-03    1.71292E-03
+    3     1.000001    1.49715E-03    1.49957E-03
+    4     0.999998    1.44242E-03    1.44629E-03
+    5     0.999878    4.92577E-02    1.39739E-03
+    6     0.999862    6.56273E-03    4.29972E-02
+    7     0.999898    5.54703E-03    1.97728E-02
+    8     0.999904    4.35022E-03    7.16559E-03
+    9     0.999906    3.44520E-03    4.11636E-03
+   10     0.999916    2.32935E-02    3.10368E-03
+   11     0.999911    5.26327E-03    1.67452E-02
+   12     0.999913    5.50734E-04    7.86820E-03
+   13     0.999912    3.61425E-04    6.07905E-04
+   14     0.999912    3.05849E-04    3.08913E-04
+   15     0.999906    6.45374E-03    2.76659E-04
+   16     0.999907    1.42178E-03    5.41983E-03
+   17     0.999909    9.07881E-04    2.98876E-03
+   18     0.999910    6.75399E-04    8.96683E-04
+   19     0.999910    5.24194E-04    6.05404E-04
+   20     0.999914    4.19424E-03    4.69083E-04
+    1     0.999991    1.30211E-03    3.87264E-03
+    2     0.999982    7.31529E-04    8.23420E-04
+    3     0.999981    6.24650E-04    6.29460E-04
+    4     0.999982    6.01195E-04    6.02271E-04
+    5     1.000003    1.75104E-02    5.85956E-04
+    6     1.000014    2.24098E-03    1.53416E-02
+    7     1.000002    1.67283E-03    7.77517E-03
+    8     1.000001    1.25122E-03    2.36145E-03
+    9     1.000001    9.58357E-04    1.19654E-03
+   10     1.000001    1.50799E-02    8.36892E-04
+   11     1.000005    4.98318E-03    1.02212E-02
+   12     1.000003    1.22446E-03    4.47462E-03
+   13     1.000003    8.39973E-04    1.04140E-03
+   14     1.000004    5.62740E-04    6.89827E-04
+   15     1.000007    7.27712E-03    4.68285E-04
+   16     1.000009    2.61975E-03    4.74127E-03
+   17     1.000006    9.28812E-04    2.22994E-03
+   18     1.000006    7.48108E-04    8.45551E-04
+   19     1.000006    5.98325E-04    6.84676E-04
+   20     1.000006    8.03708E-03    5.47063E-04
+    1     1.000029    9.41611E-04    3.07628E-03
+    2     1.000023    5.67179E-04    1.00551E-03
+    3     1.000022    5.38393E-04    5.40657E-04
+    4     1.000022    5.08140E-04    5.10152E-04
+    5     1.000028    2.32991E-02    4.82836E-04
+    6     1.000022    3.63689E-03    2.02245E-02
+    7     1.000026    2.32335E-03    9.89204E-03
+    8     1.000026    1.82263E-03    2.94343E-03
+    9     1.000026    1.44812E-03    1.68683E-03
+   10     1.000024    1.23847E-02    1.31914E-03
+   11     1.000025    3.24391E-03    8.72081E-03
+   12     1.000024    1.17101E-03    3.59030E-03
+   13     1.000024    8.82504E-04    1.02668E-03
+   14     1.000024    6.75624E-04    7.68806E-04
+   15     1.000024    8.53376E-03    5.99247E-04
+   16     1.000023    2.19197E-03    6.25091E-03
+   17     1.000023    3.84064E-04    2.95016E-03
+   18     1.000023    3.54242E-04    3.79705E-04
+   19     1.000023    2.81719E-04    3.16437E-04
+   20     1.000023    2.72996E-03    2.54753E-04
+    1     0.999998    3.04408E-04    4.40848E-04
+    2     1.000003    2.11929E-04    2.12384E-04
+    3     1.000003    1.81422E-04    1.83435E-04
+    4     1.000003    1.56913E-04    1.65785E-04
+    5     0.999996    5.64898E-03    1.47753E-04
+    6     0.999998    1.26026E-03    4.48030E-03
+    7     0.999998    3.66134E-04    2.16417E-03
+    8     0.999998    3.25260E-04    3.42705E-04
+    9     0.999998    2.79301E-04    2.91633E-04
+   10     0.999999    2.22157E-03    2.48495E-04
+   11     0.999999    2.88386E-04    1.81116E-03
+   12     0.999999    1.64254E-04    8.14388E-04
+   13     0.999999    1.19298E-04    1.93907E-04
+   14     0.999999    9.28106E-05    9.88340E-05
+   15     0.999999    1.46532E-03    7.65193E-05
+   16     1.000000    3.95020E-04    1.04417E-03
+   17     0.999999    9.58883E-05    5.12555E-04
+   18     0.999999    6.12990E-05    9.35441E-05
+   19     0.999999    4.50420E-05    5.26550E-05
+   20     1.000000    4.90206E-04    4.10491E-05
+    1     1.000009    4.30042E-04    1.22854E-03
+    2     1.000008    2.33504E-04    3.03769E-04
+    3     1.000008    2.01021E-04    2.02989E-04
+    4     1.000008    1.91161E-04    1.91449E-04
+    5     1.000011    8.46705E-03    1.86637E-04
+    6     1.000011    1.16423E-03    7.54635E-03
+    7     1.000010    7.35820E-04    3.85290E-03
+    8     1.000010    5.26008E-04    1.08775E-03
+    9     1.000010    3.78480E-04    4.98247E-04
+   10     1.000010    3.43403E-03    3.16707E-04
+   11     1.000010    1.32704E-03    2.06431E-03
+   12     1.000010    4.81518E-04    7.04310E-04
+   13     1.000010    3.47312E-04    4.11024E-04
+   14     1.000010    2.56708E-04    2.96780E-04
+   15     1.000010    2.77535E-03    2.24158E-04
+   16     1.000010    7.44979E-04    1.97350E-03
+   17     1.000010    1.39420E-04    8.72001E-04
+   18     1.000010    1.03895E-04    1.24217E-04
+   19     1.000010    7.38925E-05    8.96899E-05
+   20     1.000010    5.78854E-04    6.41378E-05
+    1     1.000006    1.05686E-04    2.49766E-04
+    2     1.000007    8.27603E-05    9.21480E-05
+    3     1.000007    7.79377E-05    7.82280E-05
+    4     1.000007    7.39624E-05    7.42239E-05
+    5     1.000005    3.61587E-03    7.07161E-05
+    6     1.000005    5.47010E-04    3.04004E-03
+    7     1.000006    3.33357E-04    1.25023E-03
+    8     1.000006    2.65922E-04    4.09798E-04
+    9     1.000006    2.18097E-04    2.48546E-04
+   10     1.000006    1.62837E-03    1.98049E-04
+   11     1.000006    3.84244E-04    1.15364E-03
+   12     1.000006    8.25137E-05    4.91057E-04
+   13     1.000006    6.66737E-05    7.52298E-05
+   14     1.000006    5.27620E-05    6.02519E-05
+   15     1.000006    8.40165E-04    4.80921E-05
+   16     1.000006    2.02535E-04    6.36078E-04
+   17     1.000006    3.95789E-05    2.97840E-04
+   18     1.000006    3.63657E-05    3.88175E-05
+   19     1.000006    2.74233E-05    3.06920E-05
+   20     1.000006    1.58773E-04    2.35327E-05
+    1     1.000006    1.40505E-04    3.92057E-04
+    2     1.000006    6.77161E-05    9.24790E-05
+    3     1.000006    5.66121E-05    5.73026E-05
+    4     1.000006    5.20179E-05    5.23141E-05
+    5     1.000006    1.87782E-03    4.98226E-05
+    6     1.000006    2.36523E-04    1.71174E-03
+    7     1.000006    1.51775E-04    8.68854E-04
+    8     1.000006    1.05188E-04    2.30171E-04
+    9     1.000006    7.41542E-05    1.00030E-04
+   10     1.000006    7.56360E-04    6.12924E-05
+   11     1.000006    3.20959E-04    4.27000E-04
+   12     1.000006    1.21676E-04    1.42680E-04
+   13     1.000006    8.57662E-05    1.01267E-04
+   14     1.000006    6.11458E-05    7.14357E-05
+   15     1.000006    5.23897E-04    5.20809E-05
+   16     1.000006    1.43525E-04    3.64015E-04
+   17     1.000006    2.84820E-05    1.61768E-04
+   18     1.000006    2.07603E-05    2.49439E-05
+   19     1.000006    1.49802E-05    1.79051E-05
+   20     1.000006    2.01507E-04    1.29562E-05
+    1     1.000007    7.11384E-05    2.20122E-04
+    2     1.000007    4.23503E-05    5.84554E-05
+    3     1.000007    3.98453E-05    4.00030E-05
+    4     1.000007    3.76578E-05    3.77880E-05
+    5     1.000007    1.81702E-03    3.60495E-05
+    6     1.000007    2.81130E-04    1.57331E-03
+    7     1.000007    1.62599E-04    7.06458E-04
+    8     1.000007    1.21010E-04    2.23282E-04
+    9     1.000007    8.94943E-05    1.13241E-04
+   10     1.000007    8.07650E-04    7.82748E-05
+   11     1.000007    2.67780E-04    5.26605E-04
+   12     1.000007    9.06299E-05    1.92445E-04
+   13     1.000007    6.80522E-05    7.92115E-05
+   14     1.000007    5.24438E-05    5.98816E-05
+   15     1.000007    6.66304E-04    4.67336E-05
+   16     1.000007    1.69206E-04    4.88148E-04
+   17     1.000007    3.07028E-05    2.21028E-04
+   18     1.000007    2.44449E-05    2.79088E-05
+   19     1.000007    1.83959E-05    2.20204E-05
+   20     1.000007    1.23110E-04    1.71266E-05
+    1     1.000006    3.05267E-05    6.56954E-05
+    2     1.000006    1.61380E-05    1.64317E-05
+    3     1.000006    1.33440E-05    1.34591E-05
+    4     1.000006    1.17462E-05    1.18676E-05
+    5     1.000006    2.70893E-04    1.08624E-05
+    6     1.000006    5.13284E-05    2.18807E-04
+    7     1.000006    1.13312E-05    1.08182E-04
+    8     1.000006    9.68400E-06    1.50361E-05
+    9     1.000006    8.08735E-06    8.26930E-06
+    1     1.000007    3.74344E-05    9.87908E-05
+    2     1.000007    2.09268E-05    2.28668E-05
+    3     1.000007    1.82303E-05    1.83967E-05
+    4     1.000007    1.71381E-05    1.72085E-05
+    5     1.000007    7.49573E-04    1.66909E-05
+    6     1.000007    1.03631E-04    6.77652E-04
+    7     1.000007    5.96456E-05    3.42743E-04
+    8     1.000007    4.13193E-05    8.99785E-05
+    9     1.000007    2.87765E-05    3.89229E-05
+   10     1.000007    3.41454E-04    2.33933E-05
+   11     1.000007    1.55176E-04    1.88462E-04
+   12     1.000007    6.13676E-05    7.18855E-05
+   13     1.000007    4.26821E-05    5.17046E-05
+   14     1.000007    3.06793E-05    3.58840E-05
+   15     1.000007    2.07088E-04    2.62090E-05
+   16     1.000007    5.20559E-05    1.42938E-04
+   17     1.000007    8.68007E-06    6.16087E-05
+   18     1.000007    6.07861E-06    7.56018E-06
+    1     1.000007    5.56550E-06    7.77690E-06
+    1     1.000006    1.46006E-05    3.87941E-05
+    2     1.000006    1.02160E-05    1.13234E-05
+    3     1.000006    9.65531E-06    9.68960E-06
+       1       1.000006    8.88454E-06    9.33514E-06
+
+ ***********************************************
+Effective Factor Multiplication : Keff = 1.000006
+ ***********************************************
+    1     0.995018    1.60340E-01    4.68037E+03
+    2     0.999553    5.34087E-02    1.57159E+01
+    3     0.999988    1.54057E-02    3.98628E-01
+    4     0.999972    6.22339E-03    1.68936E-01
+     ...Fission Source Extrapolated...
+    5     0.999898    1.60085E-02    6.79155E-02
+    6     0.999937    4.82235E-03    1.31090E-01
+    7     0.999960    2.19276E-03    3.48802E-02
+    8     0.999972    9.72627E-04    1.87899E-02
+    9     0.999977    6.76554E-04    7.58742E-03
+     ...Fission Source Extrapolated...
+   10     1.000019    7.73427E-03    6.80703E-03
+   11     1.000005    4.80633E-03    7.21893E-02
+   12     0.999999    2.89644E-03    5.36381E-02
+   13     1.000003    5.09213E-04    1.06803E-02
+   14     1.000003    1.94510E-04    2.76875E-03
+     ...Fission Source Extrapolated...
+   15     0.999996    2.81673E-03    3.25700E-04
+   16     0.999998    8.34231E-04    8.83878E-03
+   17     0.999999    4.15321E-04    7.21025E-03
+   18     1.000000    1.43635E-04    3.69630E-03
+   19     1.000000    1.10433E-04    2.75319E-03
+     ...Fission Source Extrapolated...
+   20     1.000006    1.52632E-03    1.65981E-03
+   21     1.000005    1.05032E-03    1.07914E-02
+   22     1.000004    5.72317E-04    4.01969E-03
+   23     1.000004    1.17751E-04    3.37172E-03
+   24     1.000004    5.08197E-05    1.48154E-03
+     ...Fission Source Extrapolated...
+   25     1.000003    6.77115E-04    1.19417E-03
+   26     1.000004    4.13096E-04    1.01310E-02
+   27     1.000004    2.47972E-04    4.64409E-03
+   28     1.000004    6.35224E-05    3.41732E-03
+   29     1.000004    5.31541E-05    1.92327E-03
+     ...Fission Source Extrapolated...
+   30     1.000005    7.78080E-04    1.25786E-03
+   31     1.000005    5.25966E-04    9.78394E-03
+   32     1.000005    2.97462E-04    2.57900E-03
+   33     1.000005    5.93498E-05    2.77117E-03
+   34     1.000005    2.75955E-05    1.08569E-03
+     ...Fission Source Extrapolated...
+   35     1.000005    3.88562E-04    8.38273E-04
+   36     1.000005    2.43571E-04    8.07018E-03
+   37     1.000005    1.53796E-04    3.46643E-03
+   38     1.000005    4.14315E-05    2.32283E-03
+   39     1.000005    3.28642E-05    1.24684E-03
+     ...Fission Source Extrapolated...
+   40     1.000005    4.31459E-04    8.42422E-04
+   41     1.000006    2.87352E-04    6.37853E-03
+   42     1.000005    1.64549E-04    1.57378E-03
+   43     1.000005    3.14723E-05    1.65098E-03
+   44     1.000005    1.46727E-05    6.03004E-04
+     ...Fission Source Extrapolated...
+   45     1.000005    2.27173E-04    4.70829E-04
+   46     1.000006    1.46156E-04    5.38371E-03
+   47     1.000005    9.24757E-05    2.21496E-03
+   48     1.000005    2.75945E-05    1.41768E-03
+   49     1.000005    2.05490E-05    7.50725E-04
+     ...Fission Source Extrapolated...
+   50     1.000006    2.39073E-04    5.16448E-04
+   51     1.000006    1.57330E-04    3.76432E-03
+   52     1.000006    8.98939E-05    8.64392E-04
+   53     1.000006    1.66065E-05    8.90558E-04
+   54     1.000006    8.12065E-06    3.03357E-04
+     ...Fission Source Extrapolated...
+   55     1.000006    1.51586E-04    2.42601E-04
+   56     1.000006    9.24734E-05    3.46880E-03
+   57     1.000006    6.13806E-05    1.38001E-03
+   58     1.000006    1.89388E-05    8.74119E-04
+   59     1.000006    1.32017E-05    4.68685E-04
+     ...Fission Source Extrapolated...
+   60     1.000006    1.26220E-04    3.27239E-04
+   61     1.000006    8.10870E-05    2.15362E-03
+   62     1.000006    4.62540E-05    4.90020E-04
+   63     1.000006    8.25559E-06    4.51496E-04
+   64     1.000006    4.79369E-06    1.41526E-04
+     ...Fission Source Extrapolated...
+   65     1.000006    1.08528E-04    1.14559E-04
+   66     1.000006    6.03711E-05    2.19180E-03
+   67     1.000006    4.46964E-05    8.68139E-04
+   68     1.000006    1.36397E-05    5.50123E-04
+   69     1.000006    8.69413E-06    3.05485E-04
+     ...Fission Source Extrapolated...
+   70     1.000006    6.60314E-05    2.14301E-04
+   71     1.000006    4.10717E-05    1.20016E-03
+   72     1.000006    2.29163E-05    2.73689E-04
+   73     1.000006    3.90819E-06    2.23211E-04
+   74     1.000006    2.63458E-06    6.22993E-05
+     ...Fission Source Extrapolated...
+   75     1.000006    7.73275E-05    4.99741E-05
+   76     1.000006    4.73086E-05    1.31702E-03
+   77     1.000006    3.22406E-05    5.25118E-04
+   78     1.000006    9.69781E-06    3.34668E-04
+   79     1.000006    5.72184E-06    1.94360E-04
+     ...Fission Source Extrapolated...
+   80     1.000006    3.45592E-05    1.35938E-04
+   81     1.000006    2.08096E-05    6.38965E-04
+   82     1.000006    1.09459E-05    1.46474E-04
+   83     1.000006    1.62383E-06    1.06062E-04
+   84     1.000006    1.27588E-06    2.55036E-05
+     ...Fission Source Extrapolated...
+   85     1.000006    4.95204E-05    1.98405E-05
+   86     1.000006    3.13530E-05    7.26982E-04
+   87     1.000006    2.13991E-05    2.82869E-04
+   88     1.000006    6.43610E-06    1.88390E-04
+   89     1.000006    3.68651E-06    1.14324E-04
+     ...Fission Source Extrapolated...
+   90     1.000006    1.70981E-05    7.93943E-05
+   91     1.000006    9.78398E-06    3.00316E-04
+   92     1.000006    4.78328E-06    6.95366E-05
+   93     1.000006    5.87988E-07    4.30674E-05
+   94     1.000006    4.90082E-07    7.88308E-06
+
+ ***********************************************
+Effective Factor Multiplication : Keff = 1.000006
+ ***********************************************
+       1       0.918402    2.73587E-01    1.00000E+00
+       2       0.990196    1.46689E-01    5.46612E-01
+       3       0.998341    4.95219E-02    1.70242E-01
+       4       0.999192    2.54205E-02    4.57645E-02
+       5       0.999798    6.81603E-02    1.74160E-02
+       6       0.999483    1.73533E-02    4.72045E-02
+       7       0.999659    8.21029E-03    2.15497E-02
+       8       0.999704    5.86779E-03    8.59053E-03
+       9       0.999735    4.31227E-03    5.42738E-03
+      10       1.000070    4.92041E-02    3.89978E-03
+      11       0.999904    1.22277E-02    3.99941E-02
+      12       0.999997    3.10636E-03    2.13353E-02
+      13       0.999991    2.29751E-03    3.79671E-03
+      14       0.999985    1.82960E-03    1.85430E-03
+      15       0.999929    2.43254E-02    1.70628E-03
+      16       0.999942    5.55438E-03    2.12342E-02
+      17       0.999954    1.82081E-03    3.84648E-03
+      18       0.999958    1.27987E-03    1.34866E-03
+      19       0.999961    1.04870E-03    1.06286E-03
+      20       1.000006    1.40715E-02    9.10732E-04
+      21       0.999985    3.00268E-03    1.09953E-02
+      22       0.999999    7.13106E-04    3.03331E-03
+      23       0.999998    5.28243E-04    8.95678E-04
+      24       0.999997    3.98564E-04    4.62128E-04
+      25       0.999989    3.91387E-03    3.42217E-04
+      26       0.999993    1.06914E-03    3.24506E-03
+      27       0.999992    5.08591E-04    1.10562E-03
+      28       0.999993    4.00835E-04    4.04509E-04
+      29       0.999993    3.38510E-04    3.45438E-04
+      30       1.000003    6.07483E-03    2.98222E-04
+      31       1.000001    1.38618E-03    4.74925E-03
+      32       1.000002    3.90804E-04    1.66255E-03
+      33       1.000002    3.02466E-04    4.41559E-04
+      34       1.000001    2.39523E-04    2.71919E-04
+      35       0.999999    2.16872E-03    2.13187E-04
+      36       1.000001    5.05660E-04    1.57216E-03
+      37       1.000000    1.81616E-04    6.58225E-04
+      38       1.000000    1.48580E-04    1.50167E-04
+      39       1.000000    1.29055E-04    1.29710E-04
+      40       1.000004    3.05718E-03    1.14487E-04
+      41       1.000006    8.08823E-04    2.30836E-03
+      42       1.000004    2.37606E-04    1.27579E-03
+      43       1.000004    1.87483E-04    2.94476E-04
+      44       1.000004    1.52708E-04    1.71428E-04
+      45       1.000003    1.20783E-03    1.38086E-04
+      46       1.000004    2.50508E-04    8.90754E-04
+      47       1.000003    9.41789E-05    3.69098E-04
+      48       1.000003    7.54025E-05    7.56160E-05
+      49       1.000003    6.82583E-05    6.85738E-05
+      50       1.000006    2.15042E-03    6.07902E-05
+      51       1.000007    5.76577E-04    1.72352E-03
+      52       1.000006    1.57450E-04    9.41376E-04
+      53       1.000005    1.23803E-04    2.05574E-04
+      54       1.000005    1.00461E-04    1.13334E-04
+      55       1.000005    5.75905E-04    9.05760E-05
+      56       1.000005    1.03957E-04    4.19626E-04
+      57       1.000005    4.14188E-05    1.67271E-04
+      58       1.000005    3.20003E-05    3.24343E-05
+      59       1.000005    2.75450E-05    2.77667E-05
+      60       1.000006    1.34954E-03    2.52695E-05
+      61       1.000008    3.13729E-04    1.17320E-03
+      62       1.000006    1.17212E-04    6.24655E-04
+      63       1.000006    8.55016E-05    1.53540E-04
+      64       1.000006    6.33390E-05    8.01644E-05
+      65       1.000006    2.54747E-04    5.57237E-05
+      66       1.000006    5.89427E-05    1.75664E-04
+      67       1.000006    1.29957E-05    7.42239E-05
+      68       1.000006    9.62489E-06    9.78599E-06
+
+ ***********************************************
+Effective Factor Multiplication : Keff = 1.000006
+ ***********************************************
+
+  TRANSIENT RESULTS :
+
+  Step  Time(s)  React.($)   Rel. Power   Avg. Tm   Max. Tm   Avg. Tf   Max. Tf
+ --------------------------------------------------------------------------------
+   0     0.000    0.0000     1.0000E+00    302.49    330.39    537.40   1578.81
+   1     0.010    0.0087     1.0086E+00    302.49    330.39    537.41   1578.81
+   2     0.020    0.0219     1.0244E+00    302.49    330.39    537.44   1578.84
+   3     0.030    0.0277     1.0346E+00    302.49    330.39    537.47   1578.87
+   4     0.040    0.0326     1.0433E+00    302.49    330.39    537.51   1578.91
+   5     0.050    0.0375     1.0516E+00    302.49    330.39    537.56   1578.96
+   6     0.060    0.0387     1.0554E+00    302.50    330.39    537.61   1579.01
+   7     0.070    0.0407     1.0596E+00    302.50    330.39    537.66   1579.07
+   8     0.080    0.0409     1.0613E+00    302.50    330.39    537.71   1579.13
+   9     0.090    0.0409     1.0619E+00    302.50    330.39    537.77   1579.18
+  10     0.100    0.0407     1.0621E+00    302.50    330.39    537.82   1579.24
+  11     0.110    0.0404     1.0621E+00    302.50    330.39    537.86   1579.30
+  12     0.120    0.0402     1.0620E+00    302.50    330.39    537.91   1579.36
+  13     0.130    0.0399     1.0620E+00    302.50    330.39    537.96   1579.42
+  14     0.140    0.0397     1.0619E+00    302.50    330.39    538.01   1579.47
+  15     0.150    0.0394     1.0618E+00    302.50    330.39    538.05   1579.53
+  16     0.160    0.0392     1.0617E+00    302.51    330.40    538.10   1579.59
+  17     0.170    0.0389     1.0617E+00    302.51    330.40    538.14   1579.65
+  18     0.180    0.0386     1.0615E+00    302.51    330.40    538.18   1579.71
+  19     0.190    0.0384     1.0613E+00    302.51    330.41    538.23   1579.76
+  20     0.200    0.0381     1.0612E+00    302.51    330.41    538.27   1579.82
+  21     0.210    0.0378     1.0610E+00    302.51    330.42    538.31   1579.88
+  22     0.220    0.0375     1.0610E+00    302.52    330.43    538.35   1579.93
+  23     0.230    0.0372     1.0608E+00    302.52    330.43    538.40   1579.99
+  24     0.240    0.0370     1.0606E+00    302.52    330.44    538.44   1580.04
+  25     0.250    0.0367     1.0606E+00    302.52    330.45    538.48   1580.10
+  26     0.260    0.0364     1.0603E+00    302.52    330.45    538.52   1580.16
+  27     0.270    0.0361     1.0601E+00    302.53    330.46    538.56   1580.21
+  28     0.280    0.0359     1.0601E+00    302.53    330.47    538.60   1580.27
+  29     0.290    0.0356     1.0598E+00    302.53    330.48    538.64   1580.32
+  30     0.300    0.0353     1.0598E+00    302.53    330.49    538.67   1580.38
+  31     0.310    0.0351     1.0598E+00    302.54    330.50    538.71   1580.43
+  32     0.320    0.0347     1.0593E+00    302.54    330.51    538.75   1580.48
+  33     0.330    0.0345     1.0593E+00    302.54    330.51    538.79   1580.54
+  34     0.340    0.0343     1.0593E+00    302.54    330.52    538.83   1580.59
+  35     0.350    0.0339     1.0588E+00    302.55    330.53    538.86   1580.65
+  36     0.360    0.0337     1.0588E+00    302.55    330.54    538.90   1580.70
+  37     0.370    0.0335     1.0588E+00    302.55    330.55    538.94   1580.75
+  38     0.380    0.0331     1.0583E+00    302.55    330.56    538.97   1580.81
+  39     0.390    0.0329     1.0583E+00    302.56    330.57    539.01   1580.86
+  40     0.400    0.0327     1.0582E+00    302.56    330.58    539.05   1580.91
+  41     0.410    0.0324     1.0578E+00    302.56    330.59    539.08   1580.96
+  42     0.420    0.0322     1.0577E+00    302.56    330.60    539.12   1581.02
+  43     0.430    0.0320     1.0577E+00    302.56    330.61    539.15   1581.07
+  44     0.440    0.0317     1.0573E+00    302.57    330.62    539.19   1581.12
+  45     0.450    0.0315     1.0573E+00    302.57    330.63    539.22   1581.17
+  46     0.460    0.0312     1.0572E+00    302.57    330.64    539.25   1581.22
+  47     0.470    0.0309     1.0568E+00    302.57    330.65    539.29   1581.27
+  48     0.480    0.0307     1.0568E+00    302.58    330.66    539.32   1581.32
+  49     0.490    0.0305     1.0568E+00    302.58    330.67    539.36   1581.37
+  50     0.500    0.0303     1.0563E+00    302.58    330.68    539.39   1581.42
+  51     0.510    0.0301     1.0563E+00    302.58    330.69    539.42   1581.47
+  52     0.520    0.0299     1.0563E+00    302.59    330.70    539.46   1581.52
+  53     0.530    0.0296     1.0559E+00    302.59    330.71    539.49   1581.57
+  54     0.540    0.0294     1.0559E+00    302.59    330.72    539.52   1581.62
+  55     0.550    0.0292     1.0559E+00    302.59    330.73    539.55   1581.67
+  56     0.560    0.0290     1.0554E+00    302.60    330.74    539.58   1581.72
+  57     0.570    0.0288     1.0554E+00    302.60    330.75    539.62   1581.77
+  58     0.580    0.0286     1.0554E+00    302.60    330.76    539.65   1581.82
+  59     0.590    0.0284     1.0550E+00    302.60    330.77    539.68   1581.86
+  60     0.600    0.0282     1.0550E+00    302.60    330.78    539.71   1581.91
+  61     0.610    0.0280     1.0550E+00    302.61    330.79    539.74   1581.96
+  62     0.620    0.0278     1.0546E+00    302.61    330.80    539.77   1582.01
+  63     0.630    0.0276     1.0546E+00    302.61    330.81    539.80   1582.06
+  64     0.640    0.0275     1.0546E+00    302.61    330.82    539.83   1582.10
+  65     0.650    0.0272     1.0542E+00    302.61    330.83    539.87   1582.15
+  66     0.660    0.0271     1.0542E+00    302.62    330.84    539.90   1582.20
+  67     0.670    0.0269     1.0542E+00    302.62    330.85    539.93   1582.25
+  68     0.680    0.0267     1.0538E+00    302.62    330.86    539.96   1582.29
+  69     0.690    0.0265     1.0538E+00    302.62    330.87    539.99   1582.34
+  70     0.700    0.0264     1.0538E+00    302.62    330.87    540.01   1582.39
+  71     0.710    0.0262     1.0535E+00    302.63    330.88    540.04   1582.43
+  72     0.720    0.0260     1.0535E+00    302.63    330.89    540.07   1582.48
+  73     0.730    0.0259     1.0534E+00    302.63    330.90    540.10   1582.52
+  74     0.740    0.0257     1.0531E+00    302.63    330.91    540.13   1582.57
+  75     0.750    0.0255     1.0531E+00    302.63    330.92    540.16   1582.62
+  76     0.760    0.0254     1.0531E+00    302.63    330.92    540.19   1582.66
+  77     0.770    0.0252     1.0528E+00    302.64    330.93    540.22   1582.71
+  78     0.780    0.0251     1.0528E+00    302.64    330.94    540.25   1582.75
+  79     0.790    0.0249     1.0527E+00    302.64    330.95    540.27   1582.80
+  80     0.800    0.0248     1.0527E+00    302.64    330.96    540.30   1582.84
+  81     0.810    0.0246     1.0523E+00    302.64    330.96    540.33   1582.89
+  82     0.820    0.0244     1.0523E+00    302.64    330.97    540.36   1582.93
+  83     0.830    0.0243     1.0523E+00    302.65    330.98    540.39   1582.98
+  84     0.840    0.0242     1.0523E+00    302.65    330.99    540.41   1583.02
+  85     0.850    0.0240     1.0519E+00    302.65    330.99    540.44   1583.06
+  86     0.860    0.0239     1.0519E+00    302.65    331.00    540.47   1583.11
+  87     0.870    0.0237     1.0519E+00    302.65    331.01    540.50   1583.15
+  88     0.880    0.0236     1.0519E+00    302.65    331.02    540.52   1583.20
+  89     0.890    0.0234     1.0515E+00    302.65    331.02    540.55   1583.24
+  90     0.900    0.0233     1.0515E+00    302.66    331.03    540.58   1583.28
+  91     0.910    0.0232     1.0515E+00    302.66    331.04    540.60   1583.33
+  92     0.920    0.0230     1.0515E+00    302.66    331.04    540.63   1583.37
+  93     0.930    0.0229     1.0511E+00    302.66    331.05    540.66   1583.41
+  94     0.940    0.0228     1.0511E+00    302.66    331.06    540.68   1583.46
+  95     0.950    0.0226     1.0511E+00    302.66    331.06    540.71   1583.50
+  96     0.960    0.0225     1.0511E+00    302.66    331.07    540.74   1583.54
+  97     0.970    0.0223     1.0507E+00    302.67    331.07    540.76   1583.58
+  98     0.980    0.0222     1.0507E+00    302.67    331.08    540.79   1583.63
+  99     0.990    0.0221     1.0507E+00    302.67    331.09    540.81   1583.67
+ 100     1.000    0.0220     1.0507E+00    302.67    331.09    540.84   1583.71
+
+
+     Radial Power Distribution
+   ==============================
+           1       2       3       4       5       6       7       8       9
+     9   0.988   1.004   1.100   1.068   1.152   1.180   1.049   0.854   0.000
+     8   1.004   1.082   1.109   1.132   1.121   1.108   1.030   0.657   0.000
+     7   1.100   1.109   1.133   1.108   1.083   0.994   0.930   0.000   0.000
+     6   1.068   1.132   1.108   1.075   0.981   0.946   0.638   0.000   0.000
+     5   1.152   1.120   1.083   0.981   0.866   0.685   0.000   0.000   0.000
+     4   1.180   1.108   0.994   0.946   0.685   0.000   0.000   0.000   0.000
+     3   1.049   1.030   0.930   0.638   0.000   0.000   0.000   0.000   0.000
+     2   0.854   0.657   0.000   0.000   0.000   0.000   0.000   0.000   0.000
+     1   0.000   0.000   0.000   0.000   0.000   0.000   0.000   0.000   0.000
+
+   MAX POS.       Maximum Value
+  (  9,  6)          1.180
+
+
+     Axial Power Density Distribution
+   ====================================
+
+     Plane Number        Power      Height
+    -----------------------------------------
+        18  (Top)        0.000      427.30
+        17               0.028      397.30
+        16               0.058      389.30
+        15               0.111      376.50
+        14               0.267      363.70
+        13               0.565      333.70
+        12               0.879      303.70
+        11               1.194      273.70
+        10               1.491      243.70
+         9               1.757      213.70
+         8               1.965      183.70
+         7               2.061      153.70
+         6               1.963      123.70
+         5               1.566       93.70
+         4               1.042       63.70
+         3               0.651       48.70
+         2               0.402       37.70
+         1  (Bottom)     0.000       30.00
+
+   MAX POS.       Maximum Value
+    (  7)             2.061
+
+     Radial Flux Distribution
+   ==============================
+    Group :   1
+             1          2          3          4          5          6          7          8          9
+     9   2.139E-02  2.197E-02  2.332E-02  2.342E-02  2.442E-02  2.442E-02  2.214E-02  1.513E-02  2.122E-03 
+     8   2.197E-02  2.291E-02  2.361E-02  2.398E-02  2.387E-02  2.350E-02  2.063E-02  1.184E-02  1.556E-03 
+     7   2.332E-02  2.361E-02  2.401E-02  2.357E-02  2.289E-02  2.142E-02  1.696E-02  4.053E-03  3.667E-04 
+     6   2.342E-02  2.398E-02  2.357E-02  2.268E-02  2.094E-02  1.867E-02  1.146E-02  1.639E-03  0.000E+00 
+     5   2.442E-02  2.387E-02  2.289E-02  2.094E-02  1.797E-02  1.220E-02  3.103E-03  3.370E-04  0.000E+00 
+     4   2.442E-02  2.350E-02  2.142E-02  1.867E-02  1.220E-02  3.176E-03  4.076E-04  0.000E+00  0.000E+00 
+     3   2.214E-02  2.062E-02  1.696E-02  1.146E-02  3.103E-03  4.075E-04  0.000E+00  0.000E+00  0.000E+00 
+     2   1.513E-02  1.183E-02  4.053E-03  1.639E-03  3.370E-04  0.000E+00  0.000E+00  0.000E+00  0.000E+00 
+     1   2.122E-03  1.556E-03  3.667E-04  0.000E+00  0.000E+00  0.000E+00  0.000E+00  0.000E+00  0.000E+00 
+
+    Group :   2
+             1          2          3          4          5          6          7          8          9
+     9   2.375E-02  2.025E-02  2.650E-02  2.157E-02  2.788E-02  2.389E-02  2.527E-02  1.485E-02  9.394E-04 
+     8   2.025E-02  2.607E-02  2.241E-02  2.736E-02  2.265E-02  2.669E-02  1.787E-02  1.133E-02  6.888E-04 
+     7   2.650E-02  2.241E-02  2.732E-02  2.237E-02  2.610E-02  1.993E-02  1.607E-02  1.610E-03  1.473E-04 
+     6   2.157E-02  2.735E-02  2.237E-02  2.589E-02  1.970E-02  1.633E-02  1.099E-02  7.210E-04  0.000E+00 
+     5   2.788E-02  2.265E-02  2.610E-02  1.970E-02  2.077E-02  1.182E-02  1.239E-03  1.353E-04  0.000E+00 
+     4   2.388E-02  2.669E-02  1.993E-02  1.633E-02  1.182E-02  1.272E-03  1.631E-04  0.000E+00  0.000E+00 
+     3   2.527E-02  1.787E-02  1.607E-02  1.099E-02  1.239E-03  1.631E-04  0.000E+00  0.000E+00  0.000E+00 
+     2   1.485E-02  1.133E-02  1.610E-03  7.209E-04  1.353E-04  0.000E+00  0.000E+00  0.000E+00  0.000E+00 
+     1   9.393E-04  6.888E-04  1.473E-04  0.000E+00  0.000E+00  0.000E+00  0.000E+00  0.000E+00  0.000E+00 
+
