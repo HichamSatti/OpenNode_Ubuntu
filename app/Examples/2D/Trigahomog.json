@@ -1,0 +1,61 @@
+{
+   "Data": 
+   { 
+      "Parameters": 
+      { 
+         "ID": 100,
+         "Calculation Mode": "Forward",
+         "Number of Energy Groups": 7,
+         "Number of Materials": 1,
+         "Polynomial Order": 4,
+         "Dimensions": 2,
+         "Number of X-Assembly": 1,
+         "Number of Y-Assembly": 1,
+         "Number of Z-Assembly": 1,
+         "X-Assembly Division": [1],
+         "Y-Assembly Division": [1],
+         "Z-Assembly Division": [1],
+         "X-Assembly Size": [1.51019],
+         "Y-Assembly Size": [1.51019],
+         "Z-Assembly Size": [1.51019],
+         "Number of Planar": 1,
+         "Planar Assignement to Z": [1]
+      }, 
+      "Materials": 
+      [{ 
+		"ID": 1, 
+        "Name": "Fuel",
+        "Absorption_XS": [7.2431E-04, 9.5146E-04,1.4392E-02, 1.6948E-02, 3.9206E-02, 7.0506E-02, 1.2839E-01],
+        "Transport_XS": [0.207155, 0.402620, 0.611609, 0.747451, 0.989295, 1.464493, 2.805599],
+        "Fission_XS": [1.0456E-03, 6.3635E-04, 8.3530E-03, 2.3940E-02, 5.8727E-02, 1.0920E-01, 1.9495E-01],
+        "Nu*Fission_XS": [1.0456E-03, 6.3635E-04, 8.3530E-03, 2.3940E-02, 5.8727E-02, 1.0920E-01, 1.9495E-01],
+        "Chi": [0.872105, 0.126214, 0.000390, 0, 0, 0, 0],
+        "Scattering_XS":[[1.1662E-01, 9.7116E-02, 1.6611E-03, 1.1917E-11, 1.1405E-11, 1.2747E-12, 1.1383E-13], 
+                         [0.0000E+00, 2.6165E-01, 1.6640E-01, 9.2116E-06, 8.8841E-06, 1.6231E-06, 4.4820E-07], 
+                         [0.0000E+00, 0.0000E+00, 4.8420E-01, 5.4666E-02, 5.1497E-02, 8.5384E-03, 3.6512E-03],
+                         [0.0000E+00, 0.0000E+00, 2.3484E-03, 8.7938E-02, 6.7531E-01, 1.0771E-01, 3.3498E-02], 
+                         [0.0000E+00, 0.0000E+00, 3.2250E-11, 1.9206E-03, 4.6824E-01, 3.4385E-01, 1.5647E-01], 
+                         [0.0000E+00, 0.0000E+00, 0.0000E+00, 2.6720E-09, 3.7233E-02, 1.1834E+00, 2.3065E-01], 
+                         [0.0000E+00, 0.0000E+00, 0.0000E+00, 4.0522E-10, 1.3932E-02, 2.1454E-01, 2.6037E+00]]
+       }],
+      "Assemblies": 
+      [{ 
+         "ID": 1, 
+         "Name": "Planar 1",
+         "Assembly": [[1]]
+       }],
+      "XY_Assembly": [[[1]]],
+      "Z_Assembly": [[1]],
+
+      "Boundary Condition": 
+      { 
+         "X_East": 2,
+         "X_West": 2,
+         "Y_North": 2,
+         "Y_South": 2,
+         "Z_Top": 1,
+         "Z_Bottom": 1
+      }
+   } 
+}
+

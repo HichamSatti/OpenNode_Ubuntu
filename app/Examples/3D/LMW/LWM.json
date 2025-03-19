@@ -1,0 +1,164 @@
+{
+   "Data": 
+   { 
+      "Parameters": 
+      { 
+         "ID": 100,
+         "Calculation Mode": "RODEJCT",
+         "Number of Energy Groups": 2,
+         "Number of Materials": 3,
+         "Polynomial Order": 4,
+         "Dimensions": 3,
+         "Number of X-Assembly": 6,
+         "Number of Y-Assembly": 6,
+         "Number of Z-Assembly": 10,
+         "X-Assembly Division": [1,2,2,2,2,2],
+         "Y-Assembly Division": [1,2,2,2,2,2],
+         "Z-Assembly Division": [2,2,2,2,2,2,2,2,2,2],
+         "X-Assembly Size": [10.0,20.0,20.0,20.0,20.0,20.0],
+         "Y-Assembly Size": [10.0,20.0,20.0,20.0,20.0,20.0],
+         "Z-Assembly Size": [20.0,20.0,20.0,20.0,20.0,20.0,20.0,20.0,20.0,20.0],
+         "Number of Planar": 2,
+         "Planar Assignement to Z": [1,2,2,2,2,2,2,2,2,1]
+      }, 
+      "Materials": 
+      [{ 
+         "ID": 1, 
+        "Name": "Inner_Core",
+        "Absorption_XS": [0.01040206,0.08766217],
+        "Transport_XS": [0.2340967,0.9355255],
+        "Fission_XS": [0.006478,0.112733],
+        "Nu*Fission_XS": [0.006478,0.112733],
+        "Chi": [1.0, 0.0],
+        "Scattering_XS":[[0.0,0.017556], [0.000, 0.0]]
+       },
+       { 
+         "ID": 2, 
+        "Name": "Outer_Core",
+        "Absorption_XS": [0.01099263,0.09925634],
+        "Transport_XS": [0.2338179,0.9508216],
+        "Fission_XS": [0.007503,0.137800],
+        "Nu*Fission_XS": [0.007503,0.137800],
+        "Chi": [1.0, 0.0],
+        "Scattering_XS":[[0.0,0.017178], [0.000, 0.0]]
+       },
+       { 
+        "ID": 3, 
+        "Name": "Reflector",
+        "Absorption_XS": [0.00266057,0.04936351],
+        "Transport_XS": [0.2039700,1.2626167],
+        "Fission_XS": [0.000,0.000],
+        "Nu*Fission_XS": [0.000,0.000],
+        "Chi": [1.0, 0.0],
+        "Scattering_XS":[[0.0,0.027597], [0.000, 0.000]]
+       }],
+      "Assemblies": 
+      [{ 
+         "ID": 1, 
+         "Name": "Planar 1",
+         "Assembly": [[3,3,3,3,3,3],
+					  [3,3,3,3,3,3],
+					  [3,3,3,3,3,3],
+					  [3,3,3,3,3,3],
+					  [3,3,3,3,3,3],
+					  [3,3,3,3,3,0]]
+       },
+       { 
+         "ID": 2, 
+         "Name": "Planar 2",
+         "Assembly": [[1,1,1,1,2,3],
+					  [1,1,1,1,2,3],
+					  [1,1,1,1,2,3],
+					  [1,1,1,2,2,3],
+					  [2,2,2,2,3,3],
+					  [3,3,3,3,3,0]]
+       }],
+      "XY_Assembly": [[[3,3,3,3,3,3],
+					   [3,3,3,3,3,3],
+					   [3,3,3,3,3,3],
+					   [3,3,3,3,3,3],
+					   [3,3,3,3,3,3],
+					   [3,3,3,3,3,0]],
+					  [[1,1,1,1,2,3],
+					   [1,1,1,1,2,3],
+					   [1,1,1,1,2,3],
+					   [1,1,1,2,2,3],
+					   [2,2,2,2,3,3],
+					   [3,3,3,3,3,0]]],
+      "Z_Assembly": [[3,3,3,3,3,3],
+                     [1,1,1,1,2,3],
+                     [1,1,1,1,2,3],
+                     [1,1,1,1,2,3],
+                     [1,1,1,1,2,3],
+                     [1,1,1,1,2,3],
+                     [1,1,1,1,2,3],
+                     [1,1,1,1,2,3],
+                     [1,1,1,1,2,3],
+                     [3,3,3,3,3,3]],
+      "Boundary Condition": 
+      { 
+         "X_East": 1,
+         "X_West": 2,
+         "Y_North": 1,
+         "Y_South": 2,
+         "Z_Top": 1,
+         "Z_Bottom": 1
+      },
+      "CBCSearch": 
+      { 
+         "Number of CR banks": 2,
+         "Zero step position": 0.0,
+         "step size": 1.0,
+         "CR bank position": [180.0,100.0],
+         "Radial CR bank map": [[1,0,0,2,0,0],
+								[0,0,0,0,0,0],
+								[0,0,1,0,0,0],
+								[2,0,0,0,0,0],
+								[0,0,0,0,0,0],
+								[0,0,0,0,0,0]],
+         "Number of steps": 180
+      },
+      "REject": 
+      { 
+         "Final CR bank position":[60.0, 180.0],
+         "Time when CR bank starts moving":[7.5,0.0],
+         "CR bank movement speed":[3.0, 3.0],
+         "delayed neutron fraction":[0.00025, 0.00138, 0.00122, 0.00265, 0.00083, 0.00017],
+         "precusor decay constant":[0.01270, 0.03170, 0.11500, 0.31100, 1.40000, 3.87000],
+         "Neutron velocity":[1.25E7, 2.5E5],
+         "Total Simulation Time":60.0,
+         "First Time Step":0.25,
+         "Second Time Step":1.0,
+         "When Second Time Step Apply":60.0,
+		 "J_Materials": [
+			{
+			  "ID": 1,
+			  "Name": "Inner_Core",
+			  "J_Absorption_XS": [0.00055  ,0.00380  ],
+			  "J_Transport_XS": [0.00000  ,0.00000  ],
+			  "J_Fission_XS": [0.00000  ,0.00000  ],
+			  "J_Nu*Fission_XS": [0.00000  ,0.00000  ],
+			  "J_Scattering_XS": [[0.0,0.00000  ], [0.0,0.00000E+00]]
+			},
+			{
+			  "ID": 2,
+			  "Name": "Outer_Core",
+			  "J_Absorption_XS": [-0.00004,-0.00779],
+			  "J_Transport_XS": [0.00028 ,-0.01530],
+			  "J_Fission_XS": [-0.00103,-0.02507],
+			  "J_Nu*Fission_XS": [-0.00103,-0.02507],
+			  "J_Scattering_XS": [[0.0,0.00038], [0.0,0.00000E+00]]
+			},
+			{
+			  "ID": 3,
+			  "Name": "Reflector",
+			  "J_Absorption_XS": [0.00829  ,0.04210  ],
+			  "J_Transport_XS": [0.03013  ,-0.32709],
+			  "J_Fission_XS": [0.00648  ,0.11273],
+			  "J_Nu*Fission_XS": [0.00648  ,0.11273],
+			  "J_Scattering_XS": [[0.0,-0.01004], [0.0,0.00000E+00]]
+			}
+		  ]
+      }
+   }
+}
