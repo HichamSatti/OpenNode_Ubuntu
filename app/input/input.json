@@ -1,0 +1,15 @@
+{
+   "Data": 
+   { 
+      "Parameters": 
+      { 
+         "ID": 100,
+         "Calculation Mode": "Forward",
+         "Dimensions": 3,
+         "Number of X-Assembly": 9,
+         "Number of Y-Assembly": 9,
+         "Number of Z-Assembly": 19,
+         "X-Assembly Size": 0,
+         "Y-Assembly Size": 0,
+         "Z-Assembly Size": 0,
+         "Number of Planar": 4,
