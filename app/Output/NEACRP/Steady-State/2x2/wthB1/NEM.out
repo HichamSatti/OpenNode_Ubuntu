@@ -1,0 +1,904 @@
+                                                                                
+      /\               /\                                                       
+     //\\             //\\                                                      
+    //**\\           //**\\                                                     
+   //****\\         //****\\                                                    
+  //******\\       //******\\   ____                   _   _           _        
+  ---------   /*\   ---------  / __ \                 | \ | |         | |       
+             (***)            | |  | |_ __   ___ _ __ |  \| | ___   __| | ___   
+              \*/             | |  | | "_ \ / _ \ "_ \| . ` |/ _"\ / _" |/ _ \  
+                              | |__| | |_) |  __/ | | | |\  | |_) | (_| |  __/  
+              //\\             \____/| .__/ \___)_| |_|_| \_|\___/ \___/ \___|  
+             //**\\                  | |                                        
+            //****\\                 |_|                                        
+           //******\\                                                           
+           ----------                                                           
+                                                                                
+ ____________________________________________________________
+          | The OpenNode, Nodal Methods for Neutron Diffusion
+ Version  | Version Number: 1.1                              
+ Copyright| 2021 Radiation & Nuclear System Laboratory       
+          | University Abdelmalk Essaadi                     
+          | Faculty of Sciences, Tetouan, Morocco            
+ Source   | FORTRAN90 version                                
+ GUI      | PyQt5                                            
+ Method   | The Nodal Expansion Method (NEM)                 
+ Dimension| Three Dimensions (3D)                            
+ Geometry | Cartesian                                        
+ ____________________________________________________________
+                        ==========================
+   Calculation Mode :    Critical Boron Concentration Search Calculation 
+   ----------------     ==========================
+
+            --------------------------------------------
+            >>>> Writing Macroscopic Cross Sections <<<<
+            --------------------------------------------
+     Material  1
+    Group   Transport    Diffusion  Absorption    Removal      Nu*Fiss      Kap*Fis    Fiss. Spctr
+       1     0.053206    6.264981    0.000373    0.026829     0.000000     0.000000     1.000000
+       2     0.386406    0.862651    0.017722    0.017722     0.000000     0.000000     0.000000
+         --Scattering Matrix--
+           G/G'          1          2
+            1        0.000000    0.026455
+            2        0.000000    0.000000
+     Material  2
+    Group   Transport    Diffusion  Absorption    Removal      Nu*Fiss      Kap*Fis    Fiss. Spctr
+       1     0.295609    1.127616    0.001188    0.024349     0.000000     0.000000     1.000000
+       2     2.459310    0.135539    0.252618    0.252618     0.000000     0.000000     0.000000
+         --Scattering Matrix--
+           G/G'          1          2
+            1        0.000000    0.023161
+            2        0.000000    0.000000
+     Material  3
+    Group   Transport    Diffusion  Absorption    Removal      Nu*Fiss      Kap*Fis    Fiss. Spctr
+       1     0.295609    1.127616    0.001188    0.021269     0.000000     0.000000     1.000000
+       2     2.459310    0.135539    0.252618    0.252618     0.000000     0.000000     0.000000
+         --Scattering Matrix--
+           G/G'          1          2
+            1        0.000000    0.020081
+            2        0.000000    0.000000
+     Material  4
+    Group   Transport    Diffusion  Absorption    Removal      Nu*Fiss      Kap*Fis    Fiss. Spctr
+       1     0.222117    1.500711    0.008718    0.026968     0.004983     0.000000     1.000000
+       2     0.803140    0.415038    0.065255    0.065255     0.083903     0.000000     0.000000
+         --Scattering Matrix--
+           G/G'          1          2
+            1        0.000000    0.018250
+            2        0.000000    0.000000
+     Material  5
+    Group   Transport    Diffusion  Absorption    Removal      Nu*Fiss      Kap*Fis    Fiss. Spctr
+       1     0.221914    1.502083    0.009061    0.027065     0.005577     0.000000     1.000000
+       2     0.795538    0.419004    0.072335    0.072335     0.099863     0.000000     0.000000
+         --Scattering Matrix--
+           G/G'          1          2
+            1        0.000000    0.018004
+            2        0.000000    0.000000
+     Material  6
+    Group   Transport    Diffusion  Absorption    Removal      Nu*Fiss      Kap*Fis    Fiss. Spctr
+       1     0.221715    1.503432    0.009385    0.027152     0.006150     0.000000     1.000000
+       2     0.789253    0.422340    0.078920    0.078920     0.114667     0.000000     0.000000
+         --Scattering Matrix--
+           G/G'          1          2
+            1        0.000000    0.017767
+            2        0.000000    0.000000
+     Material  7
+    Group   Transport    Diffusion  Absorption    Removal      Nu*Fiss      Kap*Fis    Fiss. Spctr
+       1     0.222039    1.501238    0.009317    0.026455     0.005550     0.000000     1.000000
+       2     0.776230    0.429426    0.079633    0.079633     0.098558     0.000000     0.000000
+         --Scattering Matrix--
+           G/G'          1          2
+            1        0.000000    0.017138
+            2        0.000000    0.000000
+     Material  8
+    Group   Transport    Diffusion  Absorption    Removal      Nu*Fiss      Kap*Fis    Fiss. Spctr
+       1     0.222083    1.500940    0.009400    0.026250     0.005541     0.000000     1.000000
+       2     0.769969    0.432918    0.082109    0.082109     0.098006     0.000000     0.000000
+         --Scattering Matrix--
+           G/G'          1          2
+            1        0.000000    0.016850
+            2        0.000000    0.000000
+     Material  9
+    Group   Transport    Diffusion  Absorption    Removal      Nu*Fiss      Kap*Fis    Fiss. Spctr
+       1     0.222127    1.500643    0.009483    0.026045     0.005531     0.000000     1.000000
+       2     0.763813    0.436407    0.084591    0.084591     0.097411     0.000000     0.000000
+         --Scattering Matrix--
+           G/G'          1          2
+            1        0.000000    0.016563
+            2        0.000000    0.000000
+     Material 10
+    Group   Transport    Diffusion  Absorption    Removal      Nu*Fiss      Kap*Fis    Fiss. Spctr
+       1     0.221836    1.502612    0.009637    0.026542     0.006124     0.000000     1.000000
+       2     0.770705    0.432504    0.086119    0.086119     0.113241     0.000000     0.000000
+         --Scattering Matrix--
+           G/G'          1          2
+            1        0.000000    0.016904
+            2        0.000000    0.000000
+     Material 11
+    Group   Transport    Diffusion  Absorption    Removal      Nu*Fiss      Kap*Fis    Fiss. Spctr
+       1     0.221878    1.502327    0.009719    0.026337     0.006114     0.000000     1.000000
+       2     0.764704    0.435899    0.088549    0.088549     0.112635     0.000000     0.000000
+         --Scattering Matrix--
+           G/G'          1          2
+            1        0.000000    0.016618
+            2        0.000000    0.000000
+
+            -------------------------------
+            >>>>>Wrting Core Geometry<<<<<
+            -------------------------------
+  Number of Assembly in x, y and z Directions Respectively :
+           9           9          18
+  Number of Nodes in x, y and z Directions Respectively :
+          17          17          18
+
+  x-Directed Nodes Divison (Delta-x)
+    10.80  10.80  10.80  10.80  10.80  10.80  10.80  10.80  10.80  10.80
+    10.80  10.80  10.80  10.80  10.80  10.80  10.80
+  y-Directed Nodes Divison (Delta-y)
+    10.80  10.80  10.80  10.80  10.80  10.80  10.80  10.80  10.80  10.80
+    10.80  10.80  10.80  10.80  10.80  10.80  10.80
+  Planar Region :  1
+        1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17
+    17  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  2  2 
+    16  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  2  2 
+    15  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  2  2 
+    14  1  1  1  1  1  1  1  1  1  1  1  1  1  3  3  2  2 
+    13  1  1  1  1  1  1  1  1  1  1  1  1  1  3  3  2  2 
+    12  1  1  1  1  1  1  1  1  1  1  1  1  1  2  2       
+    11  1  1  1  1  1  1  1  1  1  1  1  1  1  2  2       
+    10  1  1  1  1  1  1  1  1  1  1  1  3  3  2  2       
+     9  1  1  1  1  1  1  1  1  1  1  1  3  3  2  2       
+     8  1  1  1  1  1  1  1  1  1  3  3  2  2             
+     7  1  1  1  1  1  1  1  1  1  3  3  2  2             
+     6  1  1  1  1  1  1  1  3  3  2  2                   
+     5  1  1  1  1  1  1  1  3  3  2  2                   
+     4  1  1  1  3  3  2  2  2  2                         
+     3  1  1  1  3  3  2  2  2  2                         
+     2  2  2  2  2  2                                     
+     1  2  2  2  2  2                                     
+  Planar Region :  2
+        1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17
+    17  4  5  5  4  4  5  5  4  4  5  5  4  4  6  6  2  2 
+    16  5  4  4  5  5  4  4  5  5  4  4  6  6  6  6  2  2 
+    15  5  4  4  5  5  4  4  5  5  4  4  6  6  6  6  2  2 
+    14  4  5  5  4  4  5  5  4  4  5  5  6  6  3  3  2  2 
+    13  4  5  5  4  4  5  5  4  4  5  5  6  6  3  3  2  2 
+    12  5  4  4  5  5  4  4  5  5  6  6  6  6  2  2       
+    11  5  4  4  5  5  4  4  5  5  6  6  6  6  2  2       
+    10  4  5  5  4  4  5  5  4  4  6  6  3  3  2  2       
+     9  4  5  5  4  4  5  5  4  4  6  6  3  3  2  2       
+     8  5  4  4  5  5  6  6  6  6  3  3  2  2             
+     7  5  4  4  5  5  6  6  6  6  3  3  2  2             
+     6  4  6  6  6  6  6  6  3  3  2  2                   
+     5  4  6  6  6  6  6  6  3  3  2  2                   
+     4  6  6  6  3  3  2  2  2  2                         
+     3  6  6  6  3  3  2  2  2  2                         
+     2  2  2  2  2  2                                     
+     1  2  2  2  2  2                                     
+  Planar Region :  3
+        1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17
+    17  4  9  9  4  4  9  9  4  4  7  7  4  4  6  6  2  2 
+    16  9  4  4  8  8  4  4  8  8  4  4  11 11 6  6  2  2 
+    15  9  4  4  8  8  4  4  8  8  4  4  11 11 6  6  2  2 
+    14  4  8  8  4  4  8  8  4  4  8  8  6  6  3  3  2  2 
+    13  4  8  8  4  4  8  8  4  4  8  8  6  6  3  3  2  2 
+    12  9  4  4  8  8  4  4  8  8  10 10 6  6  2  2       
+    11  9  4  4  8  8  4  4  8  8  10 10 6  6  2  2       
+    10  4  8  8  4  4  8  8  4  4  6  6  3  3  2  2       
+     9  4  8  8  4  4  8  8  4  4  6  6  3  3  2  2       
+     8  7  4  4  8  8  10 10 6  6  3  3  2  2             
+     7  7  4  4  8  8  10 10 6  6  3  3  2  2             
+     6  4  11 11 6  6  6  6  3  3  2  2                   
+     5  4  11 11 6  6  6  6  3  3  2  2                   
+     4  6  6  6  3  3  2  2  2  2                         
+     3  6  6  6  3  3  2  2  2  2                         
+     2  2  2  2  2  2                                     
+     1  2  2  2  2  2                                     
+
+  Planar Region Assignment to Planes.
+ -------------------------------------
+   Plane Number     Planar Region    Delta-z
+       18 (Top)            1          30.00
+       17                  3           8.00
+       16                  3          12.80
+       15                  3          12.80
+       14                  3          30.00
+       13                  3          30.00
+       12                  3          30.00
+       11                  3          30.00
+       10                  3          30.00
+        9                  3          30.00
+        8                  3          30.00
+        7                  3          30.00
+        6                  3          30.00
+        5                  3          30.00
+        4                  3          15.00
+        3                  3          11.00
+        2                  2           7.70
+        1 (Bottom)         1          30.00
+
+   Boundary Conditions
+   -------------------
+  X-Directed West   : Reflective
+  X-Directed East   : Zero Flux
+  Y-Directed North  : Reflective
+  Y-Directed South  : Zero Flux
+  Z-Directed Bottom : Zero Flux
+  Z-Directed Top    : Zero Flux
+
+  ...Core Geometry is Sucessfully Read...
+     ---------------------------------
+
+
+  ================================================================================================
+                        CRITICAL BORON CONCENTRATION SEARCH
+  ================================================================================================
+
+   Itr  Boron Concentration          K-EFF    FLUX REL. ERROR   FISS. SOURCE REL. ERROR    DOPPLER ERROR
+  ------------------------------------------------------------------------------------------------------
+
+
+            >>>> READING CONTROL RODS INSERTION <<<<
+            --------------------------------------------
+  NUMBER OF CONTROL ROD BANK  :  7
+  MAX. NUMBER OF STEPS        : 228
+  FULLY INSERTED POSITION (cm): 37.7 (FROM BOTTOM OF THE CORE)
+  STEP SIZE (cm)              :   1.5942
+  CR CUSPING CORRECTION       : NOT ACTIVE
+  INITIAL CONTROL ROD BANK POSITION (STEPS) : 
+  (0 means fully inserted) 
+    Bank  1  Bank  2  Bank  3  Bank  4  Bank  5  Bank  6  Bank  7
+      0.0    228.0      0.0    228.0      0.0    228.0    228.0
+
+  CONTROL ROD BANK MAP : 
+  1  0  2  0  0  0  3  0  0
+  0  4  0  0  0  6  0  0  0
+  2  0  5  0  6  0  6  0  0
+  0  0  0  4  0  0  0  0  0
+  0  0  6  0  7  0  0  0  0
+  0  6  0  0  0  0  0  0  0
+  3  0  6  0  0  0  0  0  0
+  0  0  0  0  0  0  0  0  0
+  0  0  0  0  0  0  0  0  0
+
+  MATERIAL CX INCREMENT OR DECREMENT DUE TO CR INSERTION : 
+    MATERIAL  1
+    GROUP   TRANSPORT  ABSORPTION      NU*FISS      FISSION
+       1     0.003732    0.002478    -0.000103    -0.000000
+       2    -0.021993    0.025587    -0.002823    -0.000000
+   --SCATTERING MATRIX--
+     G/G'        1        2
+      1      0.000000 -0.003193
+      2      0.000000  0.000000
+    MATERIAL  2
+    GROUP   TRANSPORT  ABSORPTION      NU*FISS      FISSION
+       1     0.003732    0.002478    -0.000103    -0.000000
+       2    -0.021993    0.025587    -0.002823    -0.000000
+   --SCATTERING MATRIX--
+     G/G'        1        2
+      1      0.000000 -0.003193
+      2      0.000000  0.000000
+    MATERIAL  3
+    GROUP   TRANSPORT  ABSORPTION      NU*FISS      FISSION
+       1     0.003732    0.002478    -0.000103    -0.000000
+       2    -0.021993    0.025587    -0.002823    -0.000000
+   --SCATTERING MATRIX--
+     G/G'        1        2
+      1      0.000000 -0.003193
+      2      0.000000  0.000000
+    MATERIAL  4
+    GROUP   TRANSPORT  ABSORPTION      NU*FISS      FISSION
+       1     0.003732    0.002478    -0.000103    -0.000000
+       2    -0.021993    0.025587    -0.002823    -0.000000
+   --SCATTERING MATRIX--
+     G/G'        1        2
+      1      0.000000 -0.003193
+      2      0.000000  0.000000
+    MATERIAL  5
+    GROUP   TRANSPORT  ABSORPTION      NU*FISS      FISSION
+       1     0.003732    0.002478    -0.000103    -0.000000
+       2    -0.021993    0.025587    -0.002823    -0.000000
+   --SCATTERING MATRIX--
+     G/G'        1        2
+      1      0.000000 -0.003193
+      2      0.000000  0.000000
+    MATERIAL  6
+    GROUP   TRANSPORT  ABSORPTION      NU*FISS      FISSION
+       1     0.003741    0.002429    -0.000123    -0.000000
+       2    -0.016750    0.025648    -0.003281    -0.000000
+   --SCATTERING MATRIX--
+     G/G'        1        2
+      1      0.000000 -0.003142
+      2      0.000000  0.000000
+    MATERIAL  7
+    GROUP   TRANSPORT  ABSORPTION      NU*FISS      FISSION
+       1     0.003732    0.002478    -0.000103    -0.000000
+       2    -0.021993    0.025587    -0.002823    -0.000000
+   --SCATTERING MATRIX--
+     G/G'        1        2
+      1      0.000000 -0.003193
+      2      0.000000  0.000000
+    MATERIAL  8
+    GROUP   TRANSPORT  ABSORPTION      NU*FISS      FISSION
+       1     0.003732    0.002478    -0.000103    -0.000000
+       2    -0.021993    0.025587    -0.002823    -0.000000
+   --SCATTERING MATRIX--
+     G/G'        1        2
+      1      0.000000 -0.003193
+      2      0.000000  0.000000
+    MATERIAL  9
+    GROUP   TRANSPORT  ABSORPTION      NU*FISS      FISSION
+       1     0.003732    0.002478    -0.000103    -0.000000
+       2    -0.021993    0.025587    -0.002823    -0.000000
+   --SCATTERING MATRIX--
+     G/G'        1        2
+      1      0.000000 -0.003193
+      2      0.000000  0.000000
+    MATERIAL 10
+    GROUP   TRANSPORT  ABSORPTION      NU*FISS      FISSION
+       1     0.003732    0.002478    -0.000103    -0.000000
+       2    -0.021993    0.025587    -0.002823    -0.000000
+   --SCATTERING MATRIX--
+     G/G'        1        2
+      1      0.000000 -0.003193
+      2      0.000000  0.000000
+    MATERIAL 11
+    GROUP   TRANSPORT  ABSORPTION      NU*FISS      FISSION
+       1     0.003732    0.002478    -0.000103    -0.000000
+       2    -0.021993    0.025587    -0.002823    -0.000000
+   --SCATTERING MATRIX--
+     G/G'        1        2
+      1      0.000000 -0.003193
+      2      0.000000  0.000000
+
+  ...Control Rods Insertion card is sucessfully read...
+
+
+            >>>>      READING FUEL TEMPERATURE      <<<<
+            --------------------------------------------
+  AVERAGE FUEL TEMPERATURE   :891.19  (NOT USED)
+  FUEL TEMPERATURE REFERENCE :891.45
+
+  MATERIAL CX CHANGES PER FUEL TEMPERATURE CHANGES : 
+    MATERIAL  1
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1   0.00000E+00  0.00000E+00   0.00000E+00   0.00000E+00
+       2   0.00000E+00  0.00000E+00   0.00000E+00   0.00000E+00
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00  0.00000E+00
+      2      0.00000E+00  0.00000E+00
+    MATERIAL  2
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1   0.00000E+00  0.00000E+00   0.00000E+00   0.00000E+00
+       2   0.00000E+00  0.00000E+00   0.00000E+00   0.00000E+00
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00  0.00000E+00
+      2      0.00000E+00  0.00000E+00
+    MATERIAL  3
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1   0.00000E+00  0.00000E+00   0.00000E+00   0.00000E+00
+       2   0.00000E+00  0.00000E+00   0.00000E+00   0.00000E+00
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00  0.00000E+00
+      2      0.00000E+00  0.00000E+00
+    MATERIAL  4
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1  -0.30920E-04  0.34971E-04   0.64013E-06   0.71541E-17
+       2  -0.13729E-03 -0.37181E-04  -0.56304E-04  -0.73919E-15
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00 -0.27554E-04
+      2      0.00000E+00  0.00000E+00
+    MATERIAL  5
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1  -0.30861E-04  0.35180E-04   0.99743E-06   0.11868E-16
+       2  -0.11748E-03 -0.37704E-04  -0.60415E-04  -0.79317E-15
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00 -0.27677E-04
+      2      0.00000E+00  0.00000E+00
+    MATERIAL  6
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1  -0.30917E-04  0.35384E-04   0.14185E-05   0.17427E-16
+       2  -0.10134E-03 -0.37756E-04  -0.63096E-04  -0.82836E-15
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00 -0.27839E-04
+      2      0.00000E+00  0.00000E+00
+    MATERIAL  7
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1  -0.31375E-04  0.34870E-04   0.94543E-06   0.11868E-16
+       2  -0.10827E-03 -0.37275E-04  -0.57966E-04  -0.76085E-15
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00 -0.27355E-04
+      2      0.00000E+00  0.00000E+00
+    MATERIAL  8
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1  -0.31550E-04  0.34727E-04   0.92608E-06   0.10893E-16
+       2  -0.10552E-03 -0.37181E-04  -0.57111E-04  -0.74957E-15
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00 -0.27238E-04
+      2      0.00000E+00  0.00000E+00
+    MATERIAL  9
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1  -0.31728E-04  0.34603E-04   0.90580E-06   0.10617E-16
+       2  -0.10252E-03 -0.37020E-04  -0.56154E-04  -0.73697E-15
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00 -0.27117E-04
+      2      0.00000E+00  0.00000E+00
+    MATERIAL 10
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1  -0.31419E-04  0.35064E-04   0.13564E-05   0.17427E-16
+       2  -0.93889E-04 -0.37140E-04  -0.60505E-04  -0.79425E-15
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00 -0.27505E-04
+      2      0.00000E+00  0.00000E+00
+    MATERIAL 11
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1  -0.31591E-04  0.34912E-04   0.13334E-05   0.16277E-16
+       2  -0.91713E-04 -0.36991E-04  -0.59628E-04  -0.78272E-15
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00 -0.27383E-04
+      2      0.00000E+00  0.00000E+00
+
+  ...Fuel Temperature is card sucessfully read...
+
+
+            >>>>   READING MODERATOR TEMPERATURE    <<<<
+            --------------------------------------------
+  AVERAGE MODERATOR TEMPERATURE   :559.19  (NOT USED)
+  MODERATOR TEMPERATURE REFERENCE :579.75
+
+  MATERIAL CX CHANGES PER MODERATOR TEMPERATURE CHANGES : 
+    MATERIAL  1
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1   0.00000E+00  0.00000E+00   0.00000E+00   0.00000E+00
+       2   0.00000E+00  0.00000E+00   0.00000E+00   0.00000E+00
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00  0.00000E+00
+      2      0.00000E+00  0.00000E+00
+    MATERIAL  2
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1   0.00000E+00  0.00000E+00   0.00000E+00   0.00000E+00
+       2   0.00000E+00  0.00000E+00   0.00000E+00   0.00000E+00
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00  0.00000E+00
+      2      0.00000E+00  0.00000E+00
+    MATERIAL  3
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1   0.00000E+00  0.00000E+00   0.00000E+00   0.00000E+00
+       2   0.00000E+00  0.00000E+00   0.00000E+00   0.00000E+00
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00  0.00000E+00
+      2      0.00000E+00  0.00000E+00
+    MATERIAL  4
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1  -0.20331E-05  0.21219E-06   0.12471E-06   0.14304E-17
+       2  -0.10867E-03 -0.31560E-04  -0.41644E-04  -0.54672E-15
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00  0.80968E-06
+      2      0.00000E+00  0.00000E+00
+    MATERIAL  5
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1  -0.19808E-05  0.22600E-06   0.13515E-06   0.15690E-17
+       2  -0.90615E-04 -0.32144E-04  -0.45310E-04  -0.59486E-15
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00  0.85847E-06
+      2      0.00000E+00  0.00000E+00
+    MATERIAL  6
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1  -0.19243E-05  0.23994E-06   0.14908E-06   0.17542E-17
+       2  -0.76279E-04 -0.32378E-04  -0.47847E-04  -0.62817E-15
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00  0.90349E-06
+      2      0.00000E+00  0.00000E+00
+    MATERIAL  7
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1  -0.26963E-05  0.24853E-06   0.14077E-06   0.15690E-17
+       2  -0.76244E-04 -0.30012E-04  -0.42020E-04  -0.55167E-15
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00  0.70131E-06
+      2      0.00000E+00  0.00000E+00
+    MATERIAL  8
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1  -0.30791E-05  0.26185E-06   0.14323E-06   0.16790E-17
+       2  -0.73340E-04 -0.29193E-04  -0.40770E-04  -0.53526E-15
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00  0.61738E-06
+      2      0.00000E+00  0.00000E+00
+    MATERIAL  9
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1  -0.35388E-05  0.27431E-06   0.14602E-06   0.17167E-17
+       2  -0.71371E-04 -0.28304E-04  -0.39432E-04  -0.51769E-15
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00  0.51655E-06
+      2      0.00000E+00  0.00000E+00
+    MATERIAL 10
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1  -0.26391E-05  0.26429E-06   0.15586E-06   0.17542E-17
+       2  -0.63955E-04 -0.30351E-04  -0.44443E-04  -0.58348E-15
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00  0.74432E-06
+      2      0.00000E+00  0.00000E+00
+    MATERIAL 11
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1  -0.30215E-05  0.27906E-06   0.15881E-06   0.18853E-17
+       2  -0.61698E-04 -0.29563E-04  -0.43159E-04  -0.56662E-15
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00  0.65952E-06
+      2      0.00000E+00  0.00000E+00
+
+  ...Moderator Temperature Card is sucessfully read...
+
+
+            >>>>       READING COOLANT DENSITY      <<<<
+            --------------------------------------------
+  AVERAGE COOLANT DENSITY   :  0.7464  (USED AS GUESS)
+  COOLANT DENSITY REFERENCE :  0.7125
+
+  MATERIAL CX CHANGES PER COOLANT DENSITY CHANGES : 
+    MATERIAL  1
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1   0.74576E-01  0.20769E-03   0.00000E+00   0.00000E+00
+       2   0.53363E+00  0.75842E-02   0.00000E+00   0.00000E+00
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00  0.37131E-01
+      2      0.00000E+00  0.00000E+00
+    MATERIAL  2
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1   0.00000E+00  0.00000E+00   0.00000E+00   0.00000E+00
+       2   0.00000E+00  0.00000E+00   0.00000E+00   0.00000E+00
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00  0.00000E+00
+      2      0.00000E+00  0.00000E+00
+    MATERIAL  3
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1   0.00000E+00  0.00000E+00   0.00000E+00   0.00000E+00
+       2   0.00000E+00  0.00000E+00   0.00000E+00   0.00000E+00
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00  0.00000E+00
+      2      0.00000E+00  0.00000E+00
+    MATERIAL  4
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1   0.13567E+00  0.15519E-02   0.92069E-03   0.10239E-13
+       2   0.99263E+00  0.25266E-01   0.24775E-01   0.32526E-12
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00  0.29319E-01
+      2      0.00000E+00  0.00000E+00
+    MATERIAL  5
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1   0.13575E+00  0.16149E-02   0.96416E-03   0.10814E-13
+       2   0.98198E+00  0.28667E-01   0.31499E-01   0.41354E-12
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00  0.29270E-01
+      2      0.00000E+00  0.00000E+00
+    MATERIAL  6
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1   0.13583E+00  0.16802E-02   0.10141E-02   0.11477E-13
+       2   0.97227E+00  0.31957E-01   0.38110E-01   0.50033E-12
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00  0.29215E-01
+      2      0.00000E+00  0.00000E+00
+    MATERIAL  7
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1   0.13103E+00  0.16840E-02   0.98195E-03   0.10814E-13
+       2   0.93470E+00  0.31424E-01   0.35159E-01   0.46172E-12
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00  0.28249E-01
+      2      0.00000E+00  0.00000E+00
+    MATERIAL  8
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1   0.12938E+00  0.17197E-02   0.98844E-03   0.11132E-13
+       2   0.91817E+00  0.32472E-01   0.36325E-01   0.47708E-12
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00  0.27890E-01
+      2      0.00000E+00  0.00000E+00
+    MATERIAL  9
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1   0.12768E+00  0.17499E-02   0.99518E-03   0.11221E-13
+       2   0.90129E+00  0.33594E-01   0.37450E-01   0.49190E-12
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00  0.27520E-01
+      2      0.00000E+00  0.00000E+00
+    MATERIAL 10
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1   0.13112E+00  0.17553E-02   0.10352E-02   0.11477E-13
+       2   0.92492E+00  0.34985E-01   0.42069E-01   0.58348E-12
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00  0.28188E-01
+      2      0.00000E+00  0.00000E+00
+    MATERIAL 11
+     GROUP   TRANSPORT   ABSORPTION   NU*FISS       FISSION
+       1   0.12946E+00  0.17950E-02   0.10429E-02   0.11853E-13
+       2   0.90846E+00  0.36103E-01   0.43321E-01   0.56886E-12
+   --SCATTERING MATRIX--
+     G/G'          1          2
+      1      0.00000E+00  0.27826E-01
+      2      0.00000E+00  0.00000E+00
+
+  ...Coolant Density Card is sucessfully read...
+       1       0.926963    6.52640E+01    3.47497E+02
+       2       1.010092    1.00000E+00    6.77049E+01
+       3       0.983599    1.00000E+00    3.08029E+00
+       4       0.979162    1.00000E+00    1.00000E+00
+     ...Fission Source Extrapolated...
+       5       0.982838    6.35188E+00    3.75412E-01
+       6       0.988205    1.04001E+00    1.89441E+00
+       7       0.987634    1.70056E-01    6.41998E-01
+       8       0.987973    9.02577E-02    1.08495E-01
+       9       0.988397    7.26561E-02    7.46469E-02
+     ...Fission Source Extrapolated...
+      10       0.993398    2.72606E+00    6.44389E-02
+      11       0.993662    3.53709E-01    1.68923E+00
+      12       0.992854    5.87704E-02    7.35260E-01
+      13       0.992762    3.35692E-02    7.04080E-02
+      14       0.992738    2.16903E-02    2.77627E-02
+     ...Fission Source Extrapolated...
+      15       0.992478    5.16858E-01    1.70144E-02
+      16       0.993106    1.33021E-01    3.86668E-01
+      17       0.992845    6.58468E-02    1.63775E-01
+      18       0.992948    5.49447E-02    5.92754E-02
+      19       0.993050    4.65065E-02    5.08409E-02
+     ...Fission Source Extrapolated...
+      20       0.993898    6.44951E-01    4.36027E-02
+      21       0.993838    1.12210E-01    4.47389E-01
+      22       0.993725    2.08692E-02    1.86937E-01
+      23       0.993701    1.53734E-02    1.98253E-02
+      24       0.993691    1.08010E-02    1.35324E-02
+     ...Fission Source Extrapolated...
+      25       0.993557    1.77741E-01    9.38331E-03
+      26       0.993755    7.52045E-02    1.21021E-01
+      27       0.993715    3.49148E-02    5.13561E-02
+      28       0.993751    2.86190E-02    3.26388E-02
+      29       0.993783    2.36373E-02    2.64855E-02
+     ...Fission Source Extrapolated...
+      30       0.993991    1.82034E-01    2.15351E-02
+      31       0.993980    3.28206E-02    1.30983E-01
+      32       0.993951    5.21975E-03    5.65596E-02
+      33       0.993947    3.79791E-03    5.16283E-03
+      34       0.993945    2.43610E-03    3.16829E-03
+     ...Fission Source Extrapolated...
+      35       0.993941    7.92487E-02    1.87468E-03
+      36       0.994014    3.15114E-02    6.44273E-02
+      37       0.993990    1.62960E-02    2.43163E-02
+      38       0.993999    1.20486E-02    1.44369E-02
+      39       0.994008    9.26490E-03    1.06011E-02
+     ...Fission Source Extrapolated...
+      40       0.994053    4.96041E-02    8.13587E-03
+      41       0.994048    9.44504E-03    3.47518E-02
+      42       0.994043    1.51478E-03    1.50761E-02
+      43       0.994041    1.07240E-03    1.50238E-03
+      44       0.994040    6.70651E-04    8.94713E-04
+     ...Fission Source Extrapolated...
+      45       0.993993    3.32605E-02    5.11969E-04
+      46       0.994007    1.60784E-02    2.66542E-02
+      47       0.994018    7.66232E-03    1.19301E-02
+      48       0.994023    5.41541E-03    6.59550E-03
+      49       0.994026    3.87569E-03    4.54507E-03
+     ...Fission Source Extrapolated...
+      50       0.994039    1.35903E-02    3.26608E-03
+      51       0.994039    2.20781E-03    9.09091E-03
+      52       0.994038    3.39396E-04    4.40906E-03
+      53       0.994038    2.69096E-04    4.02810E-04
+      54       0.994038    2.18810E-04    2.22340E-04
+     ...Fission Source Extrapolated...
+      55       0.994059    1.76724E-02    1.86255E-04
+      56       0.994057    4.46799E-03    1.32631E-02
+      57       0.994053    1.85867E-03    5.72644E-03
+      58       0.994051    1.35495E-03    1.57754E-03
+      59       0.994049    1.01837E-03    1.18539E-03
+     ...Fission Source Extrapolated...
+      60       0.994042    4.34645E-03    8.92198E-04
+      61       0.994042    7.00650E-04    3.10573E-03
+      62       0.994042    2.51230E-04    1.22469E-03
+      63       0.994042    1.79638E-04    2.18682E-04
+      64       0.994042    1.36547E-04    1.55349E-04
+     ...Fission Source Extrapolated...
+      65       0.994039    1.59502E-03    1.20355E-04
+      66       0.994038    3.83513E-04    1.17669E-03
+      67       0.994039    9.21702E-05    6.31950E-04
+      68       0.994039    7.66569E-05    1.26257E-04
+      69       0.994039    6.21934E-05    6.35250E-05
+     ...Fission Source Extrapolated...
+      70       0.994039    1.49359E-03    5.39732E-05
+      71       0.994039    4.07746E-04    1.08908E-03
+      72       0.994039    1.09141E-04    5.49821E-04
+      73       0.994039    7.62205E-05    1.00814E-04
+      74       0.994039    5.01824E-05    6.36936E-05
+     ...Fission Source Extrapolated...
+      75       0.994039    3.09820E-04    4.02624E-05
+      76       0.994039    1.17406E-04    1.75051E-04
+      77       0.994039    4.41622E-05    6.19300E-05
+      78       0.994039    3.26416E-05    3.98251E-05
+      79       0.994039    2.52003E-05    2.75430E-05
+     ...Fission Source Extrapolated...
+      80       0.994039    8.93911E-04    2.11071E-05
+      81       0.994039    2.62042E-04    6.48433E-04
+      82       0.994039    7.56393E-05    3.17141E-04
+      83       0.994039    5.29960E-05    7.00051E-05
+      84       0.994039    3.50223E-05    4.42019E-05
+     ...Fission Source Extrapolated...
+      85       0.994040    1.27436E-04    2.81620E-05
+      86       0.994039    3.55501E-05    7.46684E-05
+      87       0.994039    1.04158E-05    2.63265E-05
+      88       0.994039    8.04803E-06    1.02904E-05
+      89       0.994039    6.23911E-06    7.30088E-06
+
+ ***********************************************
+Effective Factor Multiplication : Keff = 0.994039
+ ***********************************************
+    1        1200.20                0.99404     6.23911E-06          7.30088E-06
+       1       0.994690    1.13581E-03    3.92598E-03
+       2       0.994711    2.69485E-04    5.44914E-04
+       3       0.994713    1.41817E-04    2.01111E-04
+       4       0.994713    9.50352E-05    1.14554E-04
+     ...Fission Source Extrapolated...
+       5       0.994715    6.59552E-04    8.01980E-05
+       6       0.994715    1.52683E-04    4.74233E-04
+       7       0.994716    4.79604E-05    1.81749E-04
+       8       0.994716    3.29843E-05    5.44987E-05
+       9       0.994716    2.51183E-05    2.93761E-05
+     ...Fission Source Extrapolated...
+      10       0.994716    3.52323E-04    2.31458E-05
+      11       0.994715    7.70818E-05    3.04989E-04
+      12       0.994716    4.31802E-05    1.00819E-04
+      13       0.994716    3.02539E-05    3.36805E-05
+      14       0.994716    2.37553E-05    2.44218E-05
+     ...Fission Source Extrapolated...
+      15       0.994716    2.47200E-04    1.94845E-05
+      16       0.994715    5.82593E-05    1.81592E-04
+      17       0.994716    8.19532E-06    3.74925E-05
+      18       0.994716    6.56616E-06    9.13653E-06
+
+ ***********************************************
+Effective Factor Multiplication : Keff = 0.994716
+ ***********************************************
+    2        1193.05                0.99472     6.56616E-06          9.13653E-06
+       1       0.999830    8.88408E-03    3.05412E-02
+       2       0.999993    2.12298E-03    4.34119E-03
+       3       1.000007    1.10607E-03    1.59283E-03
+       4       1.000010    7.32612E-04    8.94237E-04
+     ...Fission Source Extrapolated...
+       5       1.000030    4.97700E-03    6.16671E-04
+       6       1.000023    1.19582E-03    3.54730E-03
+       7       1.000031    4.00563E-04    1.32482E-03
+       8       1.000031    2.68298E-04    3.92359E-04
+       9       1.000031    1.88475E-04    2.23359E-04
+     ...Fission Source Extrapolated...
+      10       1.000033    2.47843E-03    1.65315E-04
+      11       1.000030    6.32527E-04    2.13783E-03
+      12       1.000032    3.11099E-04    6.25933E-04
+      13       1.000032    2.16950E-04    2.41367E-04
+      14       1.000032    1.68262E-04    1.73062E-04
+     ...Fission Source Extrapolated...
+      15       1.000031    1.22748E-03    1.36063E-04
+      16       1.000031    2.58112E-04    8.94113E-04
+      17       1.000031    4.05025E-05    1.37818E-04
+      18       1.000031    3.19098E-05    3.22434E-05
+      19       1.000031    2.76072E-05    2.78056E-05
+     ...Fission Source Extrapolated...
+      20       1.000031    3.91853E-04    2.59147E-05
+      21       1.000030    5.93163E-05    3.35406E-04
+      22       1.000031    5.15323E-05    9.34792E-05
+      23       1.000031    3.85082E-05    4.10520E-05
+      24       1.000031    3.11903E-05    3.12501E-05
+     ...Fission Source Extrapolated...
+      25       1.000031    2.62446E-04    2.59944E-05
+      26       1.000031    5.59075E-05    1.94128E-04
+      27       1.000031    9.33476E-06    3.26807E-05
+      28       1.000031    7.36790E-06    7.44574E-06
+
+ ***********************************************
+Effective Factor Multiplication : Keff = 1.000031
+ ***********************************************
+    3        1137.13                1.00003     7.36790E-06          7.44574E-06
+       1       1.000001    5.06093E-05    1.81439E-04
+       2       1.000000    1.16997E-05    2.32711E-05
+       3       1.000000    6.35112E-06    7.92577E-06
+
+ ***********************************************
+Effective Factor Multiplication : Keff = 1.000000
+ ***********************************************
+    4        1137.45                1.00000     6.35112E-06          7.92577E-06
+
+
+     Radial Power Distribution
+   ==============================
+           1       2       3       4       5       6       7       8       9
+     9   0.418   0.744   1.007   1.114   1.298   1.154   0.499   0.575   0.000
+     8   0.744   0.850   0.909   1.154   1.281   1.215   0.925   0.520   0.000
+     7   1.007   0.909   0.562   1.086   1.312   1.223   1.099   0.000   0.000
+     6   1.114   1.154   1.086   1.239   1.259   1.257   0.818   0.000   0.000
+     5   1.298   1.281   1.312   1.259   1.176   0.931   0.000   0.000   0.000
+     4   1.154   1.215   1.223   1.257   0.931   0.000   0.000   0.000   0.000
+     3   0.499   0.925   1.099   0.818   0.000   0.000   0.000   0.000   0.000
+     2   0.575   0.520   0.000   0.000   0.000   0.000   0.000   0.000   0.000
+     1   0.000   0.000   0.000   0.000   0.000   0.000   0.000   0.000   0.000
+
+   MAX POS.       Maximum Value
+  (  7,  5)          1.312
+
+
+     Axial Power Density Distribution
+   ====================================
+
+     Plane Number        Power      Height
+    -----------------------------------------
+        18  (Top)        0.000      427.30
+        17               0.149      397.30
+        16               0.291      389.30
+        15               0.484      376.50
+        14               0.792      363.70
+        13               1.181      333.70
+        12               1.497      303.70
+        11               1.720      273.70
+        10               1.836      243.70
+         9               1.839      213.70
+         8               1.727      183.70
+         7               1.509      153.70
+         6               1.197      123.70
+         5               0.811       93.70
+         4               0.489       63.70
+         3               0.295       48.70
+         2               0.183       37.70
+         1  (Bottom)     0.000       30.00
+
+   MAX POS.       Maximum Value
+    (  9)             1.839
+
+     Radial Flux Distribution
+   ==============================
+    Group :   1
+             1          2          3          4          5          6          7          8          9
+     9   1.214E-02  1.616E-02  2.075E-02  2.389E-02  2.666E-02  2.346E-02  1.443E-02  1.031E-02  1.524E-03 
+     8   1.616E-02  1.756E-02  1.913E-02  2.378E-02  2.659E-02  2.502E-02  1.845E-02  9.426E-03  1.198E-03 
+     7   2.075E-02  1.913E-02  1.619E-02  2.283E-02  2.697E-02  2.590E-02  1.970E-02  4.163E-03  3.180E-04 
+     6   2.389E-02  2.378E-02  2.283E-02  2.547E-02  2.645E-02  2.447E-02  1.474E-02  2.034E-03  0.000E+00 
+     5   2.666E-02  2.659E-02  2.697E-02  2.645E-02  2.410E-02  1.662E-02  4.127E-03  4.356E-04  0.000E+00 
+     4   2.346E-02  2.502E-02  2.590E-02  2.447E-02  1.662E-02  4.339E-03  5.532E-04  0.000E+00  0.000E+00 
+     3   1.443E-02  1.845E-02  1.970E-02  1.474E-02  4.127E-03  5.532E-04  0.000E+00  0.000E+00  0.000E+00 
+     2   1.031E-02  9.426E-03  4.163E-03  2.034E-03  4.356E-04  0.000E+00  0.000E+00  0.000E+00  0.000E+00 
+     1   1.524E-03  1.198E-03  3.180E-04  0.000E+00  0.000E+00  0.000E+00  0.000E+00  0.000E+00  0.000E+00 
+
+    Group :   2
+             1          2          3          4          5          6          7          8          9
+     9   9.827E-03  1.509E-02  2.443E-02  2.266E-02  3.158E-02  2.342E-02  1.169E-02  1.007E-02  6.819E-04 
+     8   1.509E-02  2.064E-02  1.844E-02  2.810E-02  2.605E-02  2.946E-02  1.613E-02  9.101E-03  5.363E-04 
+     7   2.443E-02  1.844E-02  1.321E-02  2.204E-02  3.183E-02  2.471E-02  1.917E-02  1.673E-03  1.291E-04 
+     6   2.266E-02  2.810E-02  2.204E-02  3.006E-02  2.550E-02  2.191E-02  1.430E-02  9.055E-04  0.000E+00 
+     5   3.158E-02  2.605E-02  3.183E-02  2.550E-02  2.852E-02  1.631E-02  1.667E-03  1.768E-04  0.000E+00 
+     4   2.342E-02  2.946E-02  2.471E-02  2.191E-02  1.631E-02  1.759E-03  2.237E-04  0.000E+00  0.000E+00 
+     3   1.169E-02  1.613E-02  1.917E-02  1.430E-02  1.667E-03  2.237E-04  0.000E+00  0.000E+00  0.000E+00 
+     2   1.007E-02  9.101E-03  1.673E-03  9.055E-04  1.768E-04  0.000E+00  0.000E+00  0.000E+00  0.000E+00 
+     1   6.819E-04  5.363E-04  1.291E-04  0.000E+00  0.000E+00  0.000E+00  0.000E+00  0.000E+00  0.000E+00 
+
+
+ Total Time :    6.0225049999999998      Seconds
