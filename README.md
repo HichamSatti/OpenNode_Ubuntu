@@ -5,6 +5,7 @@ In this project we develop a package OpenNode to Solve the multigroup Neutron Di
 Neutron Diffusion Package OpenNode(Open Neutron Diffusion Package from the Radiations and Nuclear Systems Group), is an open-source code written in FORTRAN90 for a pedagogical purpose to solve the steady-state and transient multigroup neutron diffusion equation using:
 
 * Nodal Expansion Method (NEM) in two- and three-Dimensional for Cartesian geoemtry.
+  
 The code, including the graphical user interface is developed and maintained by Hicham SATTI (PhD student) from University Abdelmalek Essaadi Tetouan Morocco .
 
 The directory structure of OpenNode
