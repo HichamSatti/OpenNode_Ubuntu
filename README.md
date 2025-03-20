@@ -7,7 +7,7 @@ Neutron Diffusion Package OpenNode(Open Neutron Diffusion Package from the Radia
 * Nodal Expansion Method (NEM) in two- and three-Dimensional for Cartesian geoemtry.
 The code, including the graphical user interface is developed and maintained by Hicham SATTI (PhD student) from University Abdelmalek Essaadi Tetouan Morocco .
 
-The directory structure of OpenNTP
+The directory structure of OpenNode
 =============
 
         cd OpenNode_Ubuntu
@@ -16,7 +16,7 @@ This directory contains two folders Docs (documentation) and src (the program so
 
         cd OpenNode_Ubuntu/app/Sources
 
-This directory contains OpenNTPsource files written in FORTRAN90 such as:
+This directory contains OpenNode source files written in FORTRAN90 such as:
 * NEM.F90 (for the Nodal Expansion Method in 2D and 3D)
         cd OpenNode_Ubuntu
 
@@ -39,7 +39,7 @@ Installing on Linux
 
         sudo apt-get install gfortran
 
-2. You need to install numpy (F2PY) and matplotlib library to run the package OpenNTP:
+2. You need to install numpy (F2PY) and matplotlib library to run the package OpenNode:
 
         sudo apt-get install python3-numpy
         sudo apt-get install python3-matplotlib
@@ -52,7 +52,7 @@ Installing on Linux
 
         sudo apt install blender
 
-5. Install the OpenNTP package
+5. Install the OpenNode package
 
         git clone  https://github.com/HichamSatti/OpenNode_Ubuntu.git
 
